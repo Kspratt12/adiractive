@@ -3,29 +3,34 @@
 import { motion } from "framer-motion";
 
 const petals = [
-  { x: "3%", delay: 0, duration: 3.5, size: 18, startY: -30, endY: 70, rot: [-30, 45, -15], sway: 15 },
-  { x: "10%", delay: 0.3, duration: 4, size: 14, startY: -20, endY: 80, rot: [20, -40, 30], sway: -20 },
-  { x: "18%", delay: 0.8, duration: 3.2, size: 20, startY: -40, endY: 65, rot: [-50, 20, -35], sway: 12 },
-  { x: "26%", delay: 0.1, duration: 3.8, size: 12, startY: -15, endY: 85, rot: [40, -20, 55], sway: -18 },
-  { x: "34%", delay: 0.6, duration: 3.4, size: 22, startY: -35, endY: 60, rot: [-15, 60, -25], sway: 22 },
-  { x: "42%", delay: 1.0, duration: 4.2, size: 16, startY: -25, endY: 75, rot: [55, -30, 40], sway: -14 },
-  { x: "50%", delay: 0.4, duration: 3.6, size: 19, startY: -30, endY: 70, rot: [-40, 35, -50], sway: 16 },
-  { x: "58%", delay: 0.9, duration: 3.3, size: 13, startY: -20, endY: 80, rot: [30, -55, 20], sway: -20 },
-  { x: "66%", delay: 0.2, duration: 4.1, size: 21, startY: -40, endY: 65, rot: [-25, 45, -10], sway: 18 },
-  { x: "74%", delay: 0.7, duration: 3.5, size: 15, startY: -15, endY: 85, rot: [50, -15, 60], sway: -12 },
-  { x: "82%", delay: 0.5, duration: 3.9, size: 17, startY: -35, endY: 70, rot: [-60, 25, -40], sway: 14 },
-  { x: "90%", delay: 1.1, duration: 3.7, size: 11, startY: -25, endY: 90, rot: [15, -45, 35], sway: -16 },
-  { x: "7%", delay: 1.3, duration: 4.0, size: 10, startY: -10, endY: 88, rot: [35, -60, 25], sway: 10 },
-  { x: "45%", delay: 0.15, duration: 3.1, size: 23, startY: -45, endY: 55, rot: [-20, 50, -30], sway: -22 },
-  { x: "78%", delay: 0.85, duration: 3.8, size: 14, startY: -28, endY: 78, rot: [45, -25, 55], sway: 20 },
+  { x: "2%", delay: 0, dur: 3.2, size: 22, endY: 65, rot: [-30, 50, -10], sway: 18 },
+  { x: "8%", delay: 0.4, dur: 3.8, size: 16, endY: 80, rot: [25, -40, 35], sway: -22 },
+  { x: "14%", delay: 0.1, dur: 3.5, size: 26, endY: 55, rot: [-55, 20, -30], sway: 14 },
+  { x: "20%", delay: 0.7, dur: 4.0, size: 14, endY: 85, rot: [40, -20, 55], sway: -16 },
+  { x: "26%", delay: 0.2, dur: 3.3, size: 20, endY: 70, rot: [-15, 60, -25], sway: 20 },
+  { x: "32%", delay: 0.9, dur: 3.6, size: 18, endY: 60, rot: [50, -30, 45], sway: -12 },
+  { x: "38%", delay: 0.3, dur: 4.1, size: 24, endY: 75, rot: [-45, 35, -50], sway: 16 },
+  { x: "44%", delay: 1.0, dur: 3.4, size: 15, endY: 82, rot: [30, -55, 20], sway: -20 },
+  { x: "50%", delay: 0.15, dur: 3.7, size: 28, endY: 58, rot: [-25, 45, -10], sway: 22 },
+  { x: "56%", delay: 0.6, dur: 3.9, size: 17, endY: 78, rot: [55, -15, 60], sway: -14 },
+  { x: "62%", delay: 0.05, dur: 3.2, size: 21, endY: 68, rot: [-60, 25, -40], sway: 18 },
+  { x: "68%", delay: 0.8, dur: 4.2, size: 13, endY: 88, rot: [15, -45, 35], sway: -16 },
+  { x: "74%", delay: 0.35, dur: 3.5, size: 25, endY: 62, rot: [35, -60, 25], sway: 12 },
+  { x: "80%", delay: 0.55, dur: 3.8, size: 19, endY: 72, rot: [-20, 50, -30], sway: -20 },
+  { x: "86%", delay: 0.25, dur: 3.4, size: 23, endY: 55, rot: [45, -25, 55], sway: 18 },
+  { x: "92%", delay: 0.75, dur: 4.0, size: 16, endY: 85, rot: [-35, 40, -15], sway: -14 },
+  { x: "5%", delay: 1.2, dur: 3.6, size: 20, endY: 70, rot: [20, -50, 30], sway: 16 },
+  { x: "35%", delay: 1.1, dur: 3.3, size: 22, endY: 65, rot: [-40, 30, -55], sway: -18 },
+  { x: "65%", delay: 0.95, dur: 3.7, size: 18, endY: 75, rot: [50, -35, 40], sway: 14 },
+  { x: "95%", delay: 0.45, dur: 3.9, size: 14, endY: 82, rot: [-25, 55, -20], sway: -12 },
 ];
 
 const pinkShades = [
-  "rgba(232, 68, 122, 0.22)",
-  "rgba(240, 166, 176, 0.28)",
-  "rgba(249, 198, 211, 0.30)",
-  "rgba(212, 99, 122, 0.20)",
-  "rgba(232, 68, 122, 0.16)",
+  "rgba(232, 68, 122, 0.25)",
+  "rgba(240, 166, 176, 0.32)",
+  "rgba(249, 198, 211, 0.35)",
+  "rgba(212, 99, 122, 0.22)",
+  "rgba(199, 56, 102, 0.20)",
 ];
 
 function PetalShape({ variant }: { variant: number }) {
@@ -43,14 +48,10 @@ function PetalShape({ variant }: { variant: number }) {
   );
 }
 
-interface PetalDividerProps {
-  flip?: boolean;
-}
-
-export default function PetalDivider({ flip = false }: PetalDividerProps) {
+export default function PetalDivider({ flip = false }: { flip?: boolean }) {
   return (
     <div
-      className={`relative w-full h-20 sm:h-24 lg:h-28 overflow-hidden pointer-events-none select-none ${
+      className={`relative w-full h-24 sm:h-28 lg:h-32 overflow-hidden pointer-events-none select-none ${
         flip ? "rotate-180" : ""
       }`}
     >
@@ -58,25 +59,25 @@ export default function PetalDivider({ flip = false }: PetalDividerProps) {
         <motion.div
           key={i}
           initial={{
-            y: petal.startY,
+            y: -20,
             x: 0,
             rotate: petal.rot[0],
             opacity: 0,
           }}
           whileInView={{
             y: petal.endY,
-            x: [0, petal.sway, -petal.sway * 0.5, petal.sway * 0.3, 0],
+            x: [0, petal.sway, -petal.sway * 0.6, petal.sway * 0.3, 0],
             rotate: petal.rot,
-            opacity: [0, 0.8, 1, 1, 0.6],
+            opacity: [0, 1, 1, 0.8, 0.4],
           }}
           transition={{
-            duration: petal.duration,
+            duration: petal.dur,
             delay: petal.delay,
             ease: "easeInOut",
             repeat: Infinity,
-            repeatDelay: 1,
+            repeatDelay: 0.5,
           }}
-          viewport={{ once: false, margin: "50px" }}
+          viewport={{ once: false, margin: "100px" }}
           className="absolute"
           style={{
             left: petal.x,
