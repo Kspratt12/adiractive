@@ -349,7 +349,7 @@ function ClassCard({ session }: { session: MomenceSession }) {
       <div className="flex items-center gap-5 mb-5 pl-[3.25rem] sm:pl-[3.5rem]">
         <div className="flex items-center gap-1.5 text-charcoal-light">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-50"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-          <span className="text-[13px]">{formatTime(session.startsAt)}</span>
+          <span className="text-[13px]">{formatTime(session.startsAt)} <span className="text-[10px] text-warm-gray/60">ET</span></span>
         </div>
         <div className="flex items-center gap-1.5 text-charcoal-light">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-50"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /></svg>

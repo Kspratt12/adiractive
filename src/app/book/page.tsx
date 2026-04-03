@@ -448,7 +448,7 @@ function BookingCard({ session }: { session: MomenceSession }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-0.5">
             <span className="heading-md text-base sm:text-lg text-charcoal">
-              {formatTime(session.startsAt)}
+              {formatTime(session.startsAt)} <span className="text-[10px] text-warm-gray/60">ET</span>
             </span>
             <span className="heading-md text-sm sm:text-base text-pink-hot">
               ${session.fixedTicketPrice}
