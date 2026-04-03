@@ -17,14 +17,12 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative h-[100svh] min-h-[650px] flex items-end overflow-hidden">
-      {/* Static background with slow zoom */}
+      {/* Static background */}
       <div className="absolute inset-0">
-        <motion.img
-          src="/vertical2.png"
-          alt="Haven Reformer Studio reformer workout"
+        <img
+          src="/jordan-jones1.png"
+          alt="Haven Reformer Studio neon sign"
           className="w-full h-full object-cover object-center"
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
