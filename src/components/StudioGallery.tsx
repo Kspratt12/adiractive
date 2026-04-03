@@ -82,7 +82,7 @@ export default function StudioGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 lg:mb-14 gap-4 lg:gap-6"
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 lg:mb-10 gap-4 lg:gap-6"
         >
           <div>
             <span className="label-text text-pink-hot mb-5 block tracking-[0.25em] text-[10px]">

@@ -101,7 +101,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-2 mb-14 lg:mb-20"
+          className="flex items-center justify-center gap-2 mb-10 lg:mb-14"
         >
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (

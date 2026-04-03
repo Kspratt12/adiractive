@@ -71,7 +71,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-12 lg:mb-20"
+          className="text-center mb-10 lg:mb-14"
         >
           <span className="label-text text-pink-hot mb-4 block">
             Membership

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Boutique() {
   return (
-    <section className="py-16 lg:py-24 px-6 lg:px-16">
+    <section className="py-14 lg:py-20 px-6 lg:px-16">
       <div className="max-w-6xl mx-auto">
         {/* Gift Cards + Coming Soon */}
         <motion.div

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Location() {
   return (
-    <section className="py-16 lg:py-24 px-6 lg:px-16 bg-warm-white">
+    <section className="py-18 lg:py-24 px-6 lg:px-16 bg-warm-white">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Info */}
@@ -22,7 +22,7 @@ export default function Location() {
               <span className="italic text-pink-deep">Haven</span>
             </h2>
 
-            <div className="space-y-7">
+            <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="shrink-0 w-10 h-10 rounded-xl bg-pink-light/30 flex items-center justify-center text-pink-hot">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -107,7 +107,7 @@ export default function Location() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden neon-glow h-[320px] sm:h-[400px] lg:h-[480px]"
+            className="relative rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] h-[300px] sm:h-[380px] lg:h-[440px]"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.5!2d-78.7996!3d35.5963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac8a4f0b4e7b0d%3A0x0!2s2908+N+Main+St%2C+Fuquay-Varina%2C+NC+27526!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-32 lg:py-48 px-6 lg:px-12 overflow-hidden">
+    <section className="relative py-24 lg:py-36 px-6 lg:px-16 overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
