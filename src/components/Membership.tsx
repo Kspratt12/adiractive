@@ -64,7 +64,7 @@ const plans = [
 
 export default function Membership() {
   return (
-    <section className="py-24 lg:py-40 px-6 lg:px-12" id="membership">
+    <section className="py-16 lg:py-24 px-6 lg:px-16" id="membership">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

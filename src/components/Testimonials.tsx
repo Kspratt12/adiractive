@@ -75,7 +75,7 @@ export default function Testimonials() {
   const visible = showAll ? testimonials : testimonials.slice(0, 3);
 
   return (
-    <section className="py-28 lg:py-44 px-6 lg:px-16 bg-warm-white overflow-hidden">
+    <section className="py-16 lg:py-24 px-6 lg:px-16 bg-warm-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

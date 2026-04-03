@@ -26,7 +26,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-cream/80" id="contact">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-10">
           {/* Brand with Pink H */}
           <div className="lg:col-span-2">
@@ -109,7 +109,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-20 pt-8 border-t border-cream/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-12 pt-6 border-t border-cream/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <p className="text-[11px] text-cream/20">
             &copy; {new Date().getFullYear()} Haven Reformer Studio &amp; Boutique

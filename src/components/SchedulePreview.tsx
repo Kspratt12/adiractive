@@ -21,6 +21,7 @@ const coachInitials: Record<string, string> = {
 };
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const allInstructors = ["All", "Shannon Daly", "Erika Parker", "Ginevra Myers", "Kasey Everette", "Megan Cornell"];
 
 const scheduleData = [
   {
@@ -86,10 +87,14 @@ const scheduleData = [
 
 export default function SchedulePreview() {
   const [activeDay, setActiveDay] = useState("Mon");
+  const [activeInstructor, setActiveInstructor] = useState("All");
   const activeDayData = scheduleData.find((d) => d.day === activeDay);
+  const filteredClasses = activeDayData?.classes.filter(
+    (cls) => activeInstructor === "All" || cls.instructor === activeInstructor
+  ) || [];
 
   return (
-    <section className="py-28 lg:py-44 px-6 lg:px-16 bg-warm-white" id="schedule">
+    <section className="py-16 lg:py-24 px-6 lg:px-16 bg-warm-white" id="schedule">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -116,7 +121,7 @@ export default function SchedulePreview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12 overflow-x-auto pb-2 scrollbar-hide"
+          className="flex justify-center gap-1.5 sm:gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide"
         >
           {days.map((day) => (
             <button
@@ -133,9 +138,40 @@ export default function SchedulePreview() {
           ))}
         </motion.div>
 
+        {/* Instructor Filter */}
+        <div className="flex justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12 overflow-x-auto pb-2 scrollbar-hide">
+          {allInstructors.map((name) => (
+            <button
+              key={name}
+              onClick={() => setActiveInstructor(name)}
+              className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
+                activeInstructor === name
+                  ? "bg-charcoal text-cream"
+                  : "bg-white/80 text-warm-gray hover:bg-pink-light/20"
+              }`}
+            >
+              {name !== "All" && (
+                <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 ring-1 ring-pink-light/30">
+                  <img
+                    src={coachImages[name] || "/brand1.jpg"}
+                    alt={name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              )}
+              {name === "All" ? "All Instructors" : name.split(" ")[0]}
+            </button>
+          ))}
+        </div>
+
         {/* Class Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
-          {activeDayData?.classes.map((cls, i) => (
+          {filteredClasses.length === 0 && (
+            <div className="col-span-full text-center py-10">
+              <p className="body-text text-warm-gray">No classes match your filters. Try a different day or instructor.</p>
+            </div>
+          )}
+          {filteredClasses.map((cls, i) => (
             <motion.div
               key={`${activeDay}-${i}`}
               initial={{ opacity: 0, y: 20 }}

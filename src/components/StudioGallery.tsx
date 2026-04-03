@@ -45,7 +45,7 @@ export default function StudioGallery() {
   const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section ref={ref} className="py-28 lg:py-44 px-6 lg:px-16" id="studio">
+    <section ref={ref} className="py-16 lg:py-24 px-6 lg:px-16" id="studio">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

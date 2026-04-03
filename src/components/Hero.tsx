@@ -43,17 +43,6 @@ export default function Hero() {
         style={{ y: textY }}
         className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pb-20 sm:pb-24 lg:pb-32"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-5 sm:mb-6"
-        >
-          <span className="label-text text-[10px] sm:text-[11px] text-pink-light/80 tracking-[0.25em]">
-            Haven Reformer Studio &amp; Boutique &nbsp;/&nbsp; Fuquay-Varina, NC
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

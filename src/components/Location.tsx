@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Location() {
   return (
-    <section className="py-24 lg:py-32 px-6 lg:px-16 bg-warm-white">
+    <section className="py-16 lg:py-24 px-6 lg:px-16 bg-warm-white">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Info */}

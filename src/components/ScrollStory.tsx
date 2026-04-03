@@ -27,7 +27,7 @@ export default function ScrollStory() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 sm:py-40 lg:py-56 px-6 lg:px-16 bg-warm-white overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 px-6 lg:px-16 bg-warm-white overflow-hidden"
     >
       {/* Ambient glow decorations */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-pink-light/15 rounded-full blur-[150px]" />
