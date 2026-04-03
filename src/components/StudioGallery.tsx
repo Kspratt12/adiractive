@@ -74,17 +74,25 @@ export default function StudioGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-5 lg:mb-6 rounded-2xl sm:rounded-3xl overflow-hidden neon-glow-strong"
+          className="mb-5 lg:mb-6 rounded-2xl sm:rounded-3xl overflow-hidden neon-glow-strong relative"
         >
           <video
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
+            poster="/haley-alford1.png"
             className="w-full h-[250px] sm:h-[350px] lg:h-[420px] object-cover object-center"
           >
             <source src="/haven-reel-3.mp4" type="video/mp4" />
           </video>
+          {/* Fallback image if video fails on mobile */}
+          <img
+            src="/haley-alford1.png"
+            alt="Haven studio with pink LED lights"
+            className="absolute inset-0 w-full h-full object-cover -z-10"
+          />
         </motion.div>
 
         {/* Gallery Grid */}

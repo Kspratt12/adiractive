@@ -1,11 +1,12 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -16,15 +17,31 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative h-[100svh] min-h-[600px] flex items-end overflow-hidden">
-      {/* Video Background with parallax zoom */}
-      <motion.div className="absolute inset-0" style={{ scale: videoScale }}>
+      {/* Static background image - always visible, no flash */}
+      <div className="absolute inset-0">
+        <img
+          src="/vertical2.png"
+          alt=""
+          className="w-full h-full object-cover object-center"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Video fades in on top once loaded */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ scale: videoScale }}
+        animate={{ opacity: videoReady ? 1 : 0 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
+          onCanPlay={() => setVideoReady(true)}
           className="w-full h-full object-cover object-center"
-          poster="/vertical2.png"
         >
           <source src="/haven-reel-2.mp4" type="video/mp4" />
         </video>
@@ -38,7 +55,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/20" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-cream to-transparent" />
 
-      {/* Content - bottom aligned for editorial feel */}
+      {/* Content - bottom aligned */}
       <motion.div
         style={{ y: textY }}
         className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pb-20 sm:pb-24 lg:pb-32"

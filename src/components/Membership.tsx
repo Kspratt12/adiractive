@@ -93,7 +93,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "50px" }}
               className={`relative rounded-2xl p-8 transition-all duration-500 ${
                 plan.accent
                   ? "bg-pink-hot text-cream shadow-2xl scale-[1.02] lg:scale-105 neon-glow"
