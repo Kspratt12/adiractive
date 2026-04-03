@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #FAF8F5;
+  --color-cream-dark: #F3EDE7;
+  --color-blush: #E8C4C4;
+  --color-blush-light: #F5E0E0;
+  --color-blush-dark: #D4A0A0;
+  --color-lilac: #C5B8D9;
+  --color-lilac-light: #E8E0F0;
+  --color-lilac-dark: #9B8BB8;
+  --color-charcoal: #2D2A26;
+  --color-charcoal-light: #4A4640;
+  --color-warm-gray: #8A847C;
+  --color-warm-white: #FDFCFA;
+  --color-rose: #C9878F;
+  --color-rose-light: #E6BFC4;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF8F5;
+  color: #2D2A26;
+  font-family: "DM Sans", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #E8C4C4;
+  color: #2D2A26;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4A0A0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9878F;
+}
+
+/* Editorial heading styles */
+.heading-xl {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-lg {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.heading-md {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.body-text {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.label-text {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Glass effect for cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(232, 196, 196, 0.2);
+}
+
+/* Gradient overlays */
+.gradient-fade-bottom {
+  background: linear-gradient(to bottom, transparent, rgba(250, 248, 245, 0.8));
+}
+
+.gradient-fade-top {
+  background: linear-gradient(to top, transparent, rgba(250, 248, 245, 0.8));
+}
+
+/* Parallax base */
+.parallax-container {
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
