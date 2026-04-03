@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
 import Link from "next/link";
 
 export const metadata = {
@@ -38,6 +39,7 @@ export default function PrivacyPage() {
         </div>
       </main>
       <Footer />
+      <ChatWidget />
     </>
   );
 }

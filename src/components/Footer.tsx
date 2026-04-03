@@ -19,7 +19,7 @@ const footerLinks = {
   Info: [
     { href: "/privacy", label: "Privacy Policy" },
     { href: "/terms", label: "Terms of Service" },
-    { href: "/terms", label: "Cancellation Policy" },
+    { href: "/terms#cancellation", label: "Cancellation Policy" },
   ],
 };
 

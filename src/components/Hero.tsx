@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src="/vertical2.png"
-          alt=""
+          alt="Haven Reformer Studio reformer workout"
           className="w-full h-full object-cover object-center"
           aria-hidden="true"
         />
