@@ -121,13 +121,13 @@ export default function SchedulePreview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-1.5 sm:gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide"
+          className="flex sm:justify-center gap-1.5 sm:gap-2 mb-4 overflow-x-auto pb-2 px-1 scrollbar-hide -mx-1"
         >
           {days.map((day) => (
             <button
               key={day}
               onClick={() => setActiveDay(day)}
-              className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-[10px] sm:text-[11px] font-medium tracking-[0.15em] uppercase transition-all duration-400 whitespace-nowrap ${
+              className={`shrink-0 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-[10px] sm:text-[11px] font-medium tracking-[0.15em] uppercase transition-all duration-400 whitespace-nowrap ${
                 activeDay === day
                   ? "bg-pink-hot text-cream neon-glow-strong"
                   : "bg-white text-charcoal-light hover:bg-pink-light/20 card-elevated"
@@ -139,15 +139,15 @@ export default function SchedulePreview() {
         </motion.div>
 
         {/* Instructor Filter */}
-        <div className="flex justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex sm:justify-center gap-2 mb-10 sm:mb-12 overflow-x-auto pb-3 px-1 scrollbar-hide -mx-1">
           {allInstructors.map((name) => (
             <button
               key={name}
               onClick={() => setActiveInstructor(name)}
-              className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
+              className={`flex items-center gap-1.5 shrink-0 px-3.5 sm:px-4 py-2 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
                 activeInstructor === name
                   ? "bg-charcoal text-cream"
-                  : "bg-white/80 text-warm-gray hover:bg-pink-light/20"
+                  : "bg-white/80 text-warm-gray hover:bg-pink-light/20 card-elevated"
               }`}
             >
               {name !== "All" && (
