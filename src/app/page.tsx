@@ -17,6 +17,7 @@ import ChatWidget from "@/components/ChatWidget";
 import PetalDivider from "@/components/PetalDivider";
 import VideoStrip from "@/components/VideoStrip";
 import EmailCapture from "@/components/EmailCapture";
+import ReelShowcase from "@/components/ReelShowcase";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
         <PetalDivider flip />
         <Testimonials />
         <Boutique />
+        <ReelShowcase />
         <EmailCapture />
         <FinalCTA />
         <Location />
