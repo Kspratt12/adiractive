@@ -38,19 +38,23 @@ export function useSchedule() {
     try {
       setLoading(true);
       // Fetch directly from Momence public API (CORS enabled)
+      // IMPORTANT: Momence API returns different date ranges depending on pageSize.
+      // Small pageSize (20) returns nearest upcoming sessions.
+      // Large pageSize (200) skips weeks ahead. So we use pageSize=20 and fetch multiple pages.
       const allSessions: MomenceSession[] = [];
-      let page = 1;
-      const maxPages = 5;
+      const seenIds = new Set<number>();
 
-      while (page <= maxPages) {
-        const res = await fetch(`${MOMENCE_API}?pageSize=200&page=${page}`);
+      for (let page = 1; page <= 10; page++) {
+        const res = await fetch(`${MOMENCE_API}?pageSize=20&page=${page}`);
         if (!res.ok) throw new Error(`API returned ${res.status}`);
         const data: ScheduleResponse = await res.json();
-        const active = data.payload.filter((s) => !s.isCancelled);
-        allSessions.push(...active);
-        // Stop if we got everything or this page had fewer than requested
-        if (allSessions.length >= data.pagination.totalCount || data.payload.length < 200) break;
-        page++;
+        if (data.payload.length === 0) break;
+        for (const s of data.payload) {
+          if (!s.isCancelled && !seenIds.has(s.id)) {
+            seenIds.add(s.id);
+            allSessions.push(s);
+          }
+        }
       }
 
       setSessions(allSessions);
