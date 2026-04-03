@@ -26,7 +26,7 @@ export default function Hero() {
           className="w-full h-full object-cover object-center"
           poster="/vertical2.png"
         >
-          <source src="/haven-reel-2.mp4#t=2" type="video/mp4" />
+          <source src="/haven-reel-2.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
