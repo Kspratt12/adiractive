@@ -122,7 +122,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="relative bg-white rounded-2xl p-6 sm:p-8 card-elevated flex flex-col"
+              className="relative bg-white rounded-2xl p-6 sm:p-8 card-elevated flex flex-col overflow-hidden min-w-0"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">
@@ -139,7 +139,7 @@ export default function Testimonials() {
 
               {/* Review Photos */}
               {t.photos.length > 0 && (
-                <div className="flex gap-2 mb-5 overflow-x-auto scrollbar-hide">
+                <div className="flex gap-2 mb-5 overflow-x-auto scrollbar-hide max-w-full">
                   {t.photos.map((photo, pi) => (
                     <div
                       key={pi}
