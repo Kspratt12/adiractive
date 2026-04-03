@@ -61,7 +61,7 @@ export default function Navigation() {
                 <span className={`heading-md text-lg lg:text-xl leading-none transition-colors duration-500 ${textColor}`}>
                   Haven
                 </span>
-                <span className={`hidden sm:block text-[8px] font-medium tracking-[0.2em] uppercase transition-colors duration-500 ${textColorMuted}`}>
+                <span className={`text-[7px] sm:text-[8px] font-medium tracking-[0.2em] uppercase transition-colors duration-500 ${textColorMuted}`}>
                   Reformer Studio
                 </span>
               </div>
