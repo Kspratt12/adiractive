@@ -73,11 +73,11 @@ export default function Membership() {
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-20"
         >
-          <span className="label-text text-lilac-dark mb-4 block">
+          <span className="label-text text-pink-hot mb-4 block">
             Membership
           </span>
           <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal mb-4">
-            Find Your <span className="italic text-rose">Rhythm</span>
+            Find Your <span className="italic text-pink-deep">Rhythm</span>
           </h2>
           <p className="body-text text-charcoal-light text-lg max-w-xl mx-auto">
             Whether you&apos;re dropping in or going all in, there&apos;s a plan
@@ -96,13 +96,13 @@ export default function Membership() {
               viewport={{ once: true, margin: "-50px" }}
               className={`relative rounded-2xl p-8 transition-all duration-500 ${
                 plan.accent
-                  ? "bg-charcoal text-cream shadow-2xl scale-[1.02] lg:scale-105"
-                  : "bg-white text-charcoal shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(232,196,196,0.2)]"
+                  ? "bg-pink-hot text-cream shadow-2xl scale-[1.02] lg:scale-105 neon-glow"
+                  : "bg-white text-charcoal shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(231,84,128,0.12)]"
               }`}
             >
               {plan.badge && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="px-4 py-1.5 bg-rose text-cream text-[10px] font-medium tracking-[0.12em] uppercase rounded-full whitespace-nowrap">
+                  <span className="px-4 py-1.5 bg-charcoal text-cream text-[10px] font-medium tracking-[0.12em] uppercase rounded-full whitespace-nowrap">
                     {plan.badge}
                   </span>
                 </div>
@@ -136,7 +136,7 @@ export default function Membership() {
                       height="16"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke={plan.accent ? "#E8C4C4" : "#C9878F"}
+                      stroke={plan.accent ? "#FDF8F6" : "#E75480"}
                       strokeWidth="2"
                     >
                       <polyline points="20 6 9 17 4 12" />
@@ -150,8 +150,8 @@ export default function Membership() {
                 href="/book"
                 className={`block w-full text-center px-6 py-3 rounded-full text-xs font-medium tracking-[0.12em] uppercase transition-all duration-300 ${
                   plan.accent
-                    ? "bg-cream text-charcoal hover:bg-blush-light"
-                    : "bg-charcoal text-cream hover:bg-charcoal-light"
+                    ? "bg-cream text-pink-hot hover:bg-pink-light"
+                    : "bg-pink-hot text-cream hover:bg-pink-deep"
                 }`}
               >
                 {plan.cta}
@@ -170,7 +170,7 @@ export default function Membership() {
         >
           <p className="body-text text-warm-gray">
             First time?{" "}
-            <Link href="/book" className="text-rose hover:text-blush-dark underline underline-offset-4 transition-colors">
+            <Link href="/book" className="text-pink-hot hover:text-pink-deep underline underline-offset-4 transition-colors">
               Try an Intro to Haven class for just $15
             </Link>
           </p>

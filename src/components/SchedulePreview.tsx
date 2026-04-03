@@ -82,14 +82,14 @@ export default function SchedulePreview() {
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-16"
         >
-          <span className="label-text text-lilac-dark mb-4 block">
+          <span className="label-text text-pink-hot mb-4 block">
             This Week
           </span>
           <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal mb-4">
-            Find Your <span className="italic text-rose">Class</span>
+            Find Your <span className="italic text-pink-deep">Class</span>
           </h2>
           <p className="body-text text-charcoal-light text-lg max-w-xl mx-auto">
-            The waitlists do move — don&apos;t be afraid to hop on one or a few!
+            The waitlists do move, so don&apos;t be afraid to hop on one or a few!
           </p>
         </motion.div>
 
@@ -107,8 +107,8 @@ export default function SchedulePreview() {
               onClick={() => setActiveDay(day)}
               className={`px-5 py-2.5 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
                 activeDay === day
-                  ? "bg-charcoal text-cream shadow-lg"
-                  : "bg-white text-charcoal-light hover:bg-blush-light/50"
+                  ? "bg-pink-hot text-cream shadow-lg neon-glow"
+                  : "bg-white text-charcoal-light hover:bg-pink-light/30"
               }`}
             >
               {day}
@@ -124,7 +124,7 @@ export default function SchedulePreview() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group bg-white rounded-2xl p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(232,196,196,0.2)] transition-all duration-500 border border-transparent hover:border-blush-light/50"
+              className="group bg-white rounded-2xl p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -135,7 +135,7 @@ export default function SchedulePreview() {
                     {cls.instructor}
                   </p>
                 </div>
-                <span className="heading-md text-lg text-rose">
+                <span className="heading-md text-lg text-pink-hot">
                   {cls.price}
                 </span>
               </div>
@@ -162,12 +162,12 @@ export default function SchedulePreview() {
               <div className="flex items-center justify-between">
                 {cls.spots > 0 ? (
                   <span className="text-xs text-warm-gray">
-                    <span className={`inline-block w-2 h-2 rounded-full mr-1.5 ${cls.spots <= 2 ? "bg-rose" : "bg-green-400"}`} />
+                    <span className={`inline-block w-2 h-2 rounded-full mr-1.5 ${cls.spots <= 2 ? "bg-pink-hot" : "bg-green-400"}`} />
                     {cls.spots} {cls.spots === 1 ? "spot" : "spots"} left
                   </span>
                 ) : (
-                  <span className="text-xs text-rose flex items-center gap-1.5">
-                    <span className="inline-block w-2 h-2 rounded-full bg-rose/50" />
+                  <span className="text-xs text-pink-hot flex items-center gap-1.5">
+                    <span className="inline-block w-2 h-2 rounded-full bg-pink-hot/50" />
                     Waitlist Available
                   </span>
                 )}
@@ -175,8 +175,8 @@ export default function SchedulePreview() {
                   href="/book"
                   className={`px-5 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 ${
                     cls.spots > 0
-                      ? "bg-charcoal text-cream hover:bg-charcoal-light"
-                      : "border border-rose text-rose hover:bg-rose hover:text-cream"
+                      ? "bg-pink-hot text-cream hover:bg-pink-deep"
+                      : "border border-pink-hot text-pink-hot hover:bg-pink-hot hover:text-cream"
                   }`}
                 >
                   {cls.spots > 0 ? "Book" : "Join Waitlist"}
@@ -196,7 +196,7 @@ export default function SchedulePreview() {
         >
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-charcoal text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-charcoal-light transition-colors duration-300 shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300 shadow-lg neon-glow"
           >
             View Full Schedule
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

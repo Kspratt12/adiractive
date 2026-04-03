@@ -3,9 +3,9 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import BrandIntro from "@/components/BrandIntro";
+import SchedulePreview from "@/components/SchedulePreview";
 import ScrollStory from "@/components/ScrollStory";
 import ClassExperience from "@/components/ClassExperience";
-import SchedulePreview from "@/components/SchedulePreview";
 import StudioGallery from "@/components/StudioGallery";
 import Membership from "@/components/Membership";
 import Testimonials from "@/components/Testimonials";
@@ -21,9 +21,9 @@ export default function Home() {
       <main>
         <Hero />
         <BrandIntro />
+        <SchedulePreview />
         <ScrollStory />
         <ClassExperience />
-        <SchedulePreview />
         <StudioGallery />
         <Membership />
         <Testimonials />

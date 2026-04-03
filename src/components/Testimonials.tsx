@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "Haven changed my entire relationship with fitness. I walked in nervous and walked out feeling like I&apos;d found my people. The energy is contagious.",
+      "Haven changed my entire relationship with fitness. I walked in nervous and walked out feeling like I found my people. The energy is contagious.",
     name: "Lauren M.",
     detail: "Member since 2024",
   },
   {
     quote:
-      "I&apos;ve never felt so strong and so welcomed in a studio before. The instructors truly see you and meet you where you are. This place is special.",
+      "I have never felt so strong and so welcomed in a studio before. The instructors truly see you and meet you where you are. This place is special.",
     name: "Ashley T.",
     detail: "Unlimited Member",
   },
   {
     quote:
-      "The music, the energy, the community — it all comes together in a way that makes you want to come back. Haven is my favorite hour of the week.",
+      "The music, the energy, the community. It all comes together in a way that makes you want to come back. Haven is my favorite hour of the week.",
     name: "Rachel K.",
     detail: "8-Class Member",
   },
@@ -34,11 +34,11 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16 lg:mb-24"
         >
-          <span className="label-text text-blush-dark mb-4 block">
+          <span className="label-text text-pink-hot mb-4 block">
             Community
           </span>
           <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
-            Hear From Our <span className="italic text-rose">Haven</span>
+            Hear From Our <span className="italic text-pink-deep">Haven</span>
           </h2>
         </motion.div>
 
@@ -53,7 +53,7 @@ export default function Testimonials() {
               className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
             >
               {/* Quote mark */}
-              <div className="heading-xl text-6xl text-blush-light/60 absolute top-4 left-6 leading-none select-none">
+              <div className="heading-xl text-6xl text-pink-light/60 absolute top-4 left-6 leading-none select-none">
                 &ldquo;
               </div>
 
@@ -62,7 +62,7 @@ export default function Testimonials() {
                   {t.quote}
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blush to-lilac-light flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-hot to-pink-light flex items-center justify-center">
                     <span className="text-sm font-medium text-cream">
                       {t.name[0]}
                     </span>

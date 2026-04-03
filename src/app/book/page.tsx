@@ -95,10 +95,10 @@ export default function BookPage() {
                 Back Home
               </Link>
               <h1 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal mt-4 mb-4">
-                Book a <span className="italic text-rose">Class</span>
+                Book a <span className="italic text-pink-deep">Class</span>
               </h1>
               <p className="body-text text-charcoal-light text-lg max-w-xl">
-                The waitlists do move — don&apos;t be afraid to hop on one or a
+                The waitlists do move, so don&apos;t be afraid to hop on one or a
                 few! Find the class that fits your schedule and flow.
               </p>
             </motion.div>
@@ -121,7 +121,7 @@ export default function BookPage() {
                   className={`px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase whitespace-nowrap transition-all duration-300 ${
                     selectedDay === "All"
                       ? "bg-charcoal text-cream"
-                      : "bg-white text-charcoal-light hover:bg-blush-light/50"
+                      : "bg-white text-charcoal-light hover:bg-pink-light/30"
                   }`}
                 >
                   All Days
@@ -133,7 +133,7 @@ export default function BookPage() {
                     className={`px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase whitespace-nowrap transition-all duration-300 ${
                       selectedDay === day
                         ? "bg-charcoal text-cream"
-                        : "bg-white text-charcoal-light hover:bg-blush-light/50"
+                        : "bg-white text-charcoal-light hover:bg-pink-light/30"
                     }`}
                   >
                     {day.slice(0, 3)}
@@ -145,7 +145,7 @@ export default function BookPage() {
               <select
                 value={selectedInstructor}
                 onChange={(e) => setSelectedInstructor(e.target.value)}
-                className="px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase bg-white text-charcoal-light border border-cream-dark focus:outline-none focus:ring-2 focus:ring-blush appearance-none cursor-pointer"
+                className="px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase bg-white text-charcoal-light border border-cream-dark focus:outline-none focus:ring-2 focus:ring-pink-hot appearance-none cursor-pointer"
               >
                 {instructors.map((i) => (
                   <option key={i} value={i}>
@@ -158,7 +158,7 @@ export default function BookPage() {
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase bg-white text-charcoal-light border border-cream-dark focus:outline-none focus:ring-2 focus:ring-blush appearance-none cursor-pointer"
+                className="px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase bg-white text-charcoal-light border border-cream-dark focus:outline-none focus:ring-2 focus:ring-pink-hot appearance-none cursor-pointer"
               >
                 {classTypes.map((c) => (
                   <option key={c} value={c}>
@@ -195,14 +195,14 @@ export default function BookPage() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.35, delay: i * 0.05 }}
-                            className="group bg-white rounded-2xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(232,196,196,0.2)] transition-all duration-500 border border-transparent hover:border-blush-light/50"
+                            className="group bg-white rounded-2xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
                           >
                             {/* Time & Price */}
                             <div className="flex items-center justify-between mb-3">
                               <span className="heading-md text-xl text-charcoal">
                                 {cls.time}
                               </span>
-                              <span className="heading-md text-lg text-rose">
+                              <span className="heading-md text-lg text-pink-hot">
                                 {cls.price}
                               </span>
                             </div>
@@ -227,7 +227,7 @@ export default function BookPage() {
                                   {cls.spots} {cls.spots === 1 ? "spot" : "spots"} left
                                 </span>
                               ) : (
-                                <span className="text-xs text-rose flex items-center gap-1.5">
+                                <span className="text-xs text-pink-hot flex items-center gap-1.5">
                                   <span className="inline-block w-2 h-2 rounded-full bg-rose/50" />
                                   Waitlist
                                 </span>
@@ -235,8 +235,8 @@ export default function BookPage() {
                               <button
                                 className={`px-5 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 ${
                                   cls.spots > 0
-                                    ? "bg-charcoal text-cream hover:bg-charcoal-light"
-                                    : "border border-rose text-rose hover:bg-rose hover:text-cream"
+                                    ? "bg-pink-hot text-cream hover:bg-pink-deep"
+                                    : "border border-rose text-pink-hot hover:bg-rose hover:text-cream"
                                 }`}
                               >
                                 {cls.spots > 0 ? "Book" : "Waitlist"}
@@ -268,7 +268,7 @@ export default function BookPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white rounded-2xl p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-blush-light/50 flex items-center justify-center text-rose mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-pink-light/30 flex items-center justify-center text-pink-hot mb-4">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M12 2L2 7l10 5 10-5-10-5z" />
                     <path d="M2 17l10 5 10-5" />
@@ -302,7 +302,7 @@ export default function BookPage() {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-blush-light/50 flex items-center justify-center text-rose mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-pink-light/30 flex items-center justify-center text-pink-hot mb-4">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />

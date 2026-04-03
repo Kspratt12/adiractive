@@ -7,19 +7,19 @@ const products = [
   {
     name: "Haven Grip Socks",
     price: "$18",
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&q=80",
+    image: "/vertical3.png",
     tag: "Essentials",
   },
   {
     name: "Haven Studio Tank",
     price: "$42",
-    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&q=80",
+    image: "/vertical7.png",
     tag: "Apparel",
   },
   {
     name: "Haven Water Bottle",
     price: "$28",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80",
+    image: "/vertical5.png",
     tag: "Accessories",
   },
 ];
@@ -35,11 +35,11 @@ export default function Boutique() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <span className="label-text text-lilac-dark mb-4 block">
+            <span className="label-text text-pink-hot mb-4 block">
               The Boutique
             </span>
             <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
-              Shop <span className="italic text-rose">Haven</span>
+              Shop <span className="italic text-pink-deep">Haven</span>
             </h2>
           </motion.div>
           <motion.div
@@ -50,7 +50,7 @@ export default function Boutique() {
           >
             <Link
               href="https://adiractive.com/collections/all"
-              className="label-text text-charcoal-light hover:text-charcoal flex items-center gap-2 transition-colors"
+              className="label-text text-charcoal-light hover:text-pink-hot flex items-center gap-2 transition-colors"
             >
               View All
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -83,7 +83,7 @@ export default function Boutique() {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <h3 className="heading-md text-lg text-charcoal group-hover:text-rose transition-colors">
+                <h3 className="heading-md text-lg text-charcoal group-hover:text-pink-hot transition-colors">
                   {product.name}
                 </h3>
                 <span className="body-text text-warm-gray">{product.price}</span>
@@ -98,7 +98,7 @@ export default function Boutique() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mt-16 lg:mt-20 relative rounded-2xl overflow-hidden bg-gradient-to-r from-blush-light/50 to-lilac-light/50 p-8 lg:p-12"
+          className="mt-16 lg:mt-20 relative rounded-2xl overflow-hidden bg-gradient-to-r from-pink-light/50 to-lilac-light/50 p-8 lg:p-12"
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -111,7 +111,7 @@ export default function Boutique() {
             </div>
             <Link
               href="https://adiractive.com/"
-              className="shrink-0 px-8 py-3 bg-charcoal text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-charcoal-light transition-colors duration-300"
+              className="shrink-0 px-8 py-3 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300 neon-glow"
             >
               Shop Gift Cards
             </Link>

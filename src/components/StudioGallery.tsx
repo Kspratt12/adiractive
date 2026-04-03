@@ -5,32 +5,32 @@ import { useRef } from "react";
 
 const galleryImages = [
   {
-    src: "https://adiractive.com/cdn/shop/files/IMG_4329.jpg?v=1774034243&width=1600",
-    alt: "Haven Studio reformer room",
+    src: "/vertical2.png",
+    alt: "Reformer workout with Haven neon sign",
     span: "col-span-2 row-span-2",
     height: "h-[400px] lg:h-[600px]",
   },
   {
-    src: "https://adiractive.com/cdn/shop/files/IMG_4430.jpg?v=1774034409&width=1200",
-    alt: "Haven Studio community",
+    src: "/vertical1.png",
+    alt: "Haven founders with pink balloons and kettlebells",
     span: "col-span-1 row-span-1",
     height: "h-[280px]",
   },
   {
-    src: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80",
-    alt: "Reformer workout in progress",
+    src: "/vertical7.png",
+    alt: "Haven neon sign with coffee",
     span: "col-span-1 row-span-1",
     height: "h-[280px]",
   },
   {
-    src: "https://adiractive.com/cdn/shop/files/IMG_4332.jpg?v=1774034409&width=1200",
-    alt: "Haven Studio atmosphere",
+    src: "/vertical4.png",
+    alt: "Haven community group selfie in studio mirror",
     span: "col-span-1 row-span-1",
     height: "h-[320px]",
   },
   {
-    src: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&q=80",
-    alt: "Pilates equipment detail",
+    src: "/vertical5.png",
+    alt: "Member celebrating 100th class at Haven",
     span: "col-span-1 row-span-1",
     height: "h-[320px]",
   },
@@ -55,17 +55,37 @@ export default function StudioGallery() {
           className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 lg:mb-16 gap-6"
         >
           <div>
-            <span className="label-text text-blush-dark mb-4 block">
+            <span className="label-text text-pink-hot mb-4 block">
               The Studio
             </span>
             <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
-              Step Inside <span className="italic text-rose">Haven</span>
+              Step Inside <span className="italic text-pink-deep">Haven</span>
             </h2>
           </div>
           <p className="body-text text-charcoal-light text-lg max-w-md">
-            A warm, light-filled space designed to make you feel welcome from
+            A warm, pink-lit space designed to make you feel welcome from
             the moment you walk in. This is your Haven.
           </p>
+        </motion.div>
+
+        {/* Video Feature */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-6 lg:mb-8 rounded-2xl overflow-hidden shadow-2xl neon-glow"
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-[300px] lg:h-[400px] object-cover"
+            poster="/vertical2.png"
+          >
+            <source src="/haven-reel-1.mp4" type="video/mp4" />
+          </video>
         </motion.div>
 
         {/* Gallery Grid */}

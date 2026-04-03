@@ -42,7 +42,7 @@ export default function Navigation() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-cream/90 backdrop-blur-xl shadow-[0_1px_0_rgba(232,196,196,0.3)]"
+            ? "bg-cream/90 backdrop-blur-xl shadow-[0_1px_0_rgba(240,166,176,0.3)]"
             : "bg-transparent"
         }`}
       >
@@ -64,10 +64,10 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="label-text text-[11px] text-charcoal-light hover:text-charcoal transition-colors duration-300 relative group"
+                  className="label-text text-[11px] text-charcoal-light hover:text-pink-hot transition-colors duration-300 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-blush-dark group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-pink-hot group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
             </nav>
@@ -76,7 +76,7 @@ export default function Navigation() {
             <div className="hidden lg:flex items-center gap-4">
               <Link
                 href="/book"
-                className="px-6 py-2.5 bg-charcoal text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-charcoal-light transition-colors duration-300"
+                className="px-6 py-2.5 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300 neon-glow"
               >
                 Book Now
               </Link>
@@ -126,7 +126,7 @@ export default function Navigation() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="heading-lg text-3xl text-charcoal hover:text-blush-dark transition-colors"
+                    className="heading-lg text-3xl text-charcoal hover:text-pink-hot transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -140,7 +140,7 @@ export default function Navigation() {
                 <Link
                   href="/book"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-4 px-8 py-3 bg-charcoal text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full"
+                  className="mt-4 px-8 py-3 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full"
                 >
                   Book a Class
                 </Link>

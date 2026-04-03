@@ -5,19 +5,19 @@ import { useRef } from "react";
 
 const storyItems = [
   {
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80",
+    image: "/vertical2.png",
     label: "Move",
     title: "Feel the Rhythm",
-    text: "Music-driven classes that flow with purpose. Every movement, every beat, designed to challenge and uplift.",
+    text: "Music-driven classes that flow with purpose. Every movement, every beat, designed to challenge and uplift you.",
   },
   {
-    image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80",
+    image: "/vertical3.png",
     label: "Strengthen",
     title: "Build From Within",
-    text: "A modern, athletic approach to reformer training. Not traditional Pilates — something stronger, more dynamic.",
+    text: "A modern, athletic approach to reformer training. Not traditional Pilates. Something stronger, more dynamic.",
   },
   {
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
+    image: "/vertical4.png",
     label: "Belong",
     title: "Find Your People",
     text: "Small group sessions where encouragement is real and every person matters. This is community, not just a class.",
@@ -44,21 +44,19 @@ function StoryCard({
   return (
     <div ref={ref} className="py-12 lg:py-20">
       <div
-        className={`max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
-          isEven ? "" : "direction-rtl"
-        }`}
+        className={`max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center`}
       >
         <motion.div
           style={{ y, opacity }}
           className={`relative ${isEven ? "" : "lg:order-2"}`}
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl neon-glow">
             <img
               src={item.image}
               alt={item.title}
               className="w-full h-[400px] lg:h-[500px] object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent" />
           </div>
           {/* Float label */}
           <motion.div
@@ -68,7 +66,7 @@ function StoryCard({
             viewport={{ once: true }}
             className="absolute -bottom-4 right-8 glass-card px-6 py-3 rounded-full shadow-lg"
           >
-            <span className="label-text text-rose text-[10px]">
+            <span className="label-text text-pink-hot text-[10px]">
               {item.label}
             </span>
           </motion.div>
@@ -100,7 +98,7 @@ export default function ScrollStory() {
   return (
     <section className="py-16 lg:py-24 bg-warm-white relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-blush-light/20 rounded-full blur-[100px]" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-pink-light/20 rounded-full blur-[100px]" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-lilac-light/15 rounded-full blur-[120px]" />
 
       <motion.div
@@ -110,7 +108,7 @@ export default function ScrollStory() {
         viewport={{ once: true }}
         className="text-center mb-16 lg:mb-24 px-6"
       >
-        <span className="label-text text-blush-dark mb-4 block">
+        <span className="label-text text-pink-hot mb-4 block">
           The Experience
         </span>
         <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">

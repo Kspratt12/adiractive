@@ -63,13 +63,13 @@ export default function ClassExperience() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <span className="label-text text-blush-dark mb-4 block">
+            <span className="label-text text-pink-hot mb-4 block">
               The Classes
             </span>
             <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
               Not Traditional
               <br />
-              <span className="italic text-rose">Pilates</span>
+              <span className="italic text-pink-deep">Pilates</span>
             </h2>
           </motion.div>
           <motion.div
@@ -82,8 +82,8 @@ export default function ClassExperience() {
             <p className="body-text text-charcoal-light text-lg max-w-lg">
               We take a modern, athletic approach. Our classes blend traditional
               reformer exercises with dynamic strength training sequences and
-              controlled movements — leaving you feeling strong, energized, and
-              accomplished.
+              controlled movements. You&apos;ll leave feeling strong, energized,
+              and accomplished.
             </p>
           </motion.div>
         </div>
@@ -97,9 +97,9 @@ export default function ClassExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(232,196,196,0.2)] transition-all duration-500"
+              className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(231,84,128,0.12)] transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-2xl bg-blush-light/50 flex items-center justify-center text-rose mb-6 group-hover:bg-blush-light transition-colors duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-pink-light/40 flex items-center justify-center text-pink-hot mb-6 group-hover:bg-pink-light transition-colors duration-300">
                 {feature.icon}
               </div>
               <h3 className="heading-md text-xl lg:text-2xl text-charcoal mb-3">
@@ -121,8 +121,8 @@ export default function ClassExperience() {
             viewport={{ once: true }}
             className="relative rounded-2xl overflow-hidden bg-charcoal text-cream p-8 lg:p-12"
           >
-            <div className="absolute top-0 right-0 w-48 h-48 bg-lilac-dark/20 rounded-full blur-[80px]" />
-            <span className="label-text text-blush-light/60 mb-4 block">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-pink-hot/20 rounded-full blur-[80px]" />
+            <span className="label-text text-pink-light/60 mb-4 block">
               New to Haven?
             </span>
             <h3 className="heading-lg text-2xl lg:text-3xl mb-4">
@@ -134,10 +134,10 @@ export default function ClassExperience() {
               movements, and class flow at a comfortable pace.
             </p>
             <div className="flex items-center justify-between">
-              <span className="heading-md text-2xl text-blush-light">$15</span>
+              <span className="heading-md text-2xl text-pink-light">$15</span>
               <Link
                 href="/book"
-                className="px-6 py-2.5 bg-cream text-charcoal text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-blush-light transition-colors duration-300"
+                className="px-6 py-2.5 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300"
               >
                 Book Intro
               </Link>
@@ -151,7 +151,7 @@ export default function ClassExperience() {
             viewport={{ once: true }}
             className="relative rounded-2xl overflow-hidden bg-white p-8 lg:p-12 shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
           >
-            <div className="absolute top-0 right-0 w-48 h-48 bg-blush/20 rounded-full blur-[80px]" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-pink/20 rounded-full blur-[80px]" />
             <span className="label-text text-lilac-dark mb-4 block">
               Signature Experience
             </span>
@@ -165,7 +165,7 @@ export default function ClassExperience() {
               coaching.
             </p>
             <div className="flex items-center justify-between">
-              <span className="heading-md text-2xl text-rose">
+              <span className="heading-md text-2xl text-pink-hot">
                 From $23/class
               </span>
               <Link

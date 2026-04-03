@@ -11,9 +11,9 @@ const footerLinks = {
     { href: "#studio", label: "What to Expect" },
   ],
   Connect: [
-    { href: "https://www.instagram.com/havenreformerstudio", label: "Instagram" },
+    { href: "https://www.instagram.com/havenreformer", label: "Instagram" },
     { href: "#contact", label: "Contact Us" },
-    { href: "/book", label: "Gift Cards" },
+    { href: "https://adiractive.com/", label: "Gift Cards" },
   ],
   Info: [
     { href: "#", label: "Privacy Policy" },
@@ -37,10 +37,10 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/havenreformerstudio"
+                href="https://www.instagram.com/havenreformer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:border-blush hover:bg-blush/10 transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:border-pink-hot hover:bg-pink-hot/10 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -61,7 +61,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="body-text text-sm text-cream/60 hover:text-cream transition-colors duration-300"
+                      className="body-text text-sm text-cream/60 hover:text-pink-light transition-colors duration-300"
                     >
                       {link.label}
                     </Link>

@@ -6,15 +6,20 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Video Background */}
       <div className="absolute inset-0">
-        <img
-          src="https://adiractive.com/cdn/shop/files/IMG_4329.jpg?v=1774034243&width=3200"
-          alt="Haven Reformer Studio"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/20 to-cream/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/30 to-transparent" />
+          poster="/vertical2.png"
+        >
+          <source src="/haven-reel-2.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/30 to-cream/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/40 to-transparent" />
       </div>
 
       {/* Content */}
@@ -25,7 +30,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="label-text text-cream/80 mb-6 block">
+            <span className="label-text text-pink-light mb-6 block">
               Haven Reformer Studio &amp; Boutique
             </span>
           </motion.div>
@@ -38,7 +43,9 @@ export default function Hero() {
           >
             Your Haven
             <br />
-            <span className="italic text-blush-light">to Grow Strong</span>
+            <span className="italic text-pink-light neon-text-glow">
+              to Grow Strong
+            </span>
           </motion.h1>
 
           <motion.p
@@ -47,9 +54,9 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="body-text text-lg md:text-xl text-cream/80 mb-12 max-w-xl"
           >
-            Rooted in faith, community &amp; having fun. Strength-based reformer
-            workouts designed to make you feel strong, energized, and
-            accomplished.
+            Rooted in faith, community &amp; having fun. Strength-based
+            reformer workouts designed to make you feel strong, energized,
+            and accomplished.
           </motion.p>
 
           <motion.div
@@ -60,7 +67,7 @@ export default function Hero() {
           >
             <Link
               href="/book"
-              className="inline-flex items-center justify-center px-8 py-4 bg-cream text-charcoal text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-blush-light transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-8 py-4 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-all duration-300 shadow-lg hover:shadow-xl neon-glow"
             >
               Book a Class
             </Link>

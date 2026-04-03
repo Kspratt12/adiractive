@@ -26,11 +26,11 @@ export default function ChatWidget() {
             className="absolute bottom-20 right-0 w-80 bg-white rounded-2xl shadow-[0_16px_60px_rgba(0,0,0,0.12)] overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blush to-lilac-light p-6">
-              <h3 className="heading-md text-xl text-charcoal">
+            <div className="bg-gradient-to-r from-pink-hot to-pink-light p-6">
+              <h3 className="heading-md text-xl text-cream">
                 Hey there! 👋
               </h3>
-              <p className="body-text text-sm text-charcoal-light mt-1">
+              <p className="body-text text-sm text-cream/80 mt-1">
                 How can we help you today?
               </p>
             </div>
@@ -42,14 +42,14 @@ export default function ChatWidget() {
                   key={reply.label}
                   href={reply.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-cream transition-colors duration-200 group"
+                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-pink-light/20 transition-colors duration-200 group"
                 >
                   <span className="text-lg">{reply.icon}</span>
-                  <span className="body-text text-sm text-charcoal group-hover:text-rose transition-colors">
+                  <span className="body-text text-sm text-charcoal group-hover:text-pink-hot transition-colors">
                     {reply.label}
                   </span>
                   <svg
-                    className="ml-auto w-4 h-4 text-warm-gray group-hover:text-rose transition-colors"
+                    className="ml-auto w-4 h-4 text-warm-gray group-hover:text-pink-hot transition-colors"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -68,7 +68,7 @@ export default function ChatWidget() {
                   Or email us at{" "}
                   <a
                     href="mailto:hello@havenreformer.com"
-                    className="text-rose hover:underline"
+                    className="text-pink-hot hover:underline"
                   >
                     hello@havenreformer.com
                   </a>
@@ -87,7 +87,7 @@ export default function ChatWidget() {
         className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-colors duration-300 ${
           open
             ? "bg-charcoal text-cream"
-            : "bg-gradient-to-br from-blush to-lilac text-charcoal"
+            : "bg-pink-hot text-cream neon-glow"
         }`}
         aria-label={open ? "Close chat" : "Open chat"}
       >
