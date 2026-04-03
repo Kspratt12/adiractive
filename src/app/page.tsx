@@ -18,6 +18,7 @@ import PetalDivider from "@/components/PetalDivider";
 import VideoStrip from "@/components/VideoStrip";
 import EmailCapture from "@/components/EmailCapture";
 import ReelShowcase from "@/components/ReelShowcase";
+import CinematicSection from "@/components/CinematicSection";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <main>
         <Hero />
         <BrandIntro />
+        <CinematicSection />
         <PetalDivider />
         <SchedulePreview />
         <VideoStrip />

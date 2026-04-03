@@ -53,7 +53,7 @@ const features = [
 
 export default function ClassExperience() {
   return (
-    <section className="py-16 lg:py-24 px-6 lg:px-16" id="classes">
+    <section className="py-20 lg:py-28 px-6 lg:px-16 bg-charcoal text-cream" id="classes">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16 lg:mb-24">
@@ -66,10 +66,10 @@ export default function ClassExperience() {
             <span className="label-text text-pink-hot mb-4 block">
               The Classes
             </span>
-            <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
+            <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-cream">
               Not Traditional
               <br />
-              <span className="italic text-pink-deep">Pilates</span>
+              <span className="italic text-pink-light neon-text-glow">Pilates</span>
             </h2>
           </motion.div>
           <motion.div
@@ -79,7 +79,7 @@ export default function ClassExperience() {
             viewport={{ once: true }}
             className="flex items-end"
           >
-            <p className="body-text text-charcoal-light text-lg max-w-lg">
+            <p className="body-text text-cream/60 text-lg max-w-lg">
               Athletic, intentional, and designed to challenge you while still
               being accessible. Dynamic sequences, controlled movements, and
               thoughtfully programmed flows that target the entire body.
@@ -96,15 +96,15 @@ export default function ClassExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(231,84,128,0.12)] transition-all duration-500"
+              className="group relative bg-cream/[0.06] border border-cream/[0.08] rounded-2xl p-6 sm:p-8 lg:p-10 hover:bg-cream/[0.1] transition-all duration-500"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-pink-light/40 flex items-center justify-center text-pink-hot mb-4 sm:mb-6 group-hover:bg-pink-light transition-colors duration-300">
                 {feature.icon}
               </div>
-              <h3 className="heading-md text-lg sm:text-xl lg:text-2xl text-charcoal mb-2 sm:mb-3">
+              <h3 className="heading-md text-lg sm:text-xl lg:text-2xl text-cream mb-2 sm:mb-3">
                 {feature.title}
               </h3>
-              <p className="body-text text-charcoal-light text-sm sm:text-base">
+              <p className="body-text text-cream/50 text-sm sm:text-base">
                 {feature.description}
               </p>
             </motion.div>
@@ -164,22 +164,22 @@ export default function ClassExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden bg-white p-6 sm:p-8 lg:p-12 shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
+            className="relative rounded-2xl overflow-hidden bg-cream/[0.06] border border-cream/[0.08] p-6 sm:p-8 lg:p-12"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-pink/20 rounded-full blur-[80px]" />
             <span className="label-text text-lilac-dark mb-3 sm:mb-4 block">
               Signature Experience
             </span>
-            <h3 className="heading-lg text-xl sm:text-2xl lg:text-3xl text-charcoal mb-3 sm:mb-4">
+            <h3 className="heading-lg text-xl sm:text-2xl lg:text-3xl text-cream mb-3 sm:mb-4">
               Haven Signature Class
             </h3>
-            <p className="body-text text-charcoal-light mb-4 text-sm sm:text-base">
+            <p className="body-text text-cream/60 mb-4 text-sm sm:text-base">
               A full-body, strength-focused workout that blends traditional
               reformer exercises with modern strength training and endurance
               work. Athletic, intentional, and designed to challenge you
               while still being accessible to all levels.
             </p>
-            <ul className="space-y-1.5 mb-6 text-charcoal-light text-sm">
+            <ul className="space-y-1.5 mb-6 text-cream/50 text-sm">
               <li className="flex items-center gap-2">
                 <span className="w-1 h-1 bg-pink-hot rounded-full" />
                 Athletic &amp; modern reformer programming

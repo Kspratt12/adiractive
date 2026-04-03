@@ -12,18 +12,19 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.35, 0.7]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.3, 0.7]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
-    <section ref={ref} className="relative h-[100svh] min-h-[600px] flex items-end overflow-hidden">
-      {/* Static background image - always visible, no flash */}
+    <section ref={ref} className="relative h-[100svh] min-h-[650px] flex items-end overflow-hidden">
+      {/* Static background with slow zoom */}
       <div className="absolute inset-0">
-        <img
+        <motion.img
           src="/vertical2.png"
           alt="Haven Reformer Studio reformer workout"
           className="w-full h-full object-cover object-center"
-          aria-hidden="true"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
@@ -32,7 +33,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{ scale: videoScale }}
         animate={{ opacity: videoReady ? 1 : 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <video
           autoPlay
@@ -49,55 +50,58 @@ export default function Hero() {
 
       {/* Cinematic gradient overlay */}
       <motion.div
-        className="absolute inset-0 bg-charcoal"
-        style={{ opacity: overlayOpacity }}
+        className="absolute inset-0"
+        style={{
+          opacity: overlayOpacity,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6))",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/20" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-cream to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-cream via-cream/60 to-transparent" />
 
-      {/* Content - bottom aligned */}
+      {/* Content */}
       <motion.div
         style={{ y: textY }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pb-20 sm:pb-24 lg:pb-32"
+        className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pb-24 sm:pb-28 lg:pb-36"
       >
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="heading-xl text-[clamp(2.8rem,8vw,7.5rem)] text-cream mb-6 sm:mb-8 max-w-4xl"
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="heading-xl text-[clamp(3rem,9vw,8rem)] text-cream mb-6 sm:mb-8 max-w-4xl leading-[1.0]"
         >
           Your Haven
           <br />
           <span className="italic text-pink-light neon-text-glow">
-            to Grow Strong
+            to Feel Strong Again
           </span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="body-text text-base sm:text-lg text-cream/70 mb-10 sm:mb-12 max-w-md leading-relaxed"
+          transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="body-text text-base sm:text-xl text-cream/65 mb-12 sm:mb-14 max-w-lg leading-[1.85]"
         >
-          A boutique reformer studio created to be a place of strength,
-          joy, and belonging. Come as you are.
+          A boutique reformer studio where strength meets softness,
+          and every class feels like it was made for you.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+          transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col sm:flex-row gap-3 sm:gap-5"
         >
           <Link
             href="/book"
-            className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-pink-hot text-cream text-[11px] font-medium tracking-[0.2em] uppercase rounded-full hover:bg-pink-deep transition-all duration-500 neon-glow-strong"
+            className="inline-flex items-center justify-center px-10 sm:px-12 py-4.5 bg-pink-hot text-cream text-[11px] font-medium tracking-[0.22em] uppercase rounded-full hover:bg-pink-deep transition-all duration-500 neon-glow-strong"
           >
-            Book a Class
+            Book Your First Class
           </Link>
           <Link
             href="#classes"
-            className="inline-flex items-center justify-center px-8 sm:px-10 py-4 border border-cream/25 text-cream text-[11px] font-medium tracking-[0.2em] uppercase rounded-full hover:bg-cream/8 hover:border-cream/40 transition-all duration-500 backdrop-blur-sm"
+            className="inline-flex items-center justify-center px-10 sm:px-12 py-4.5 border border-cream/20 text-cream text-[11px] font-medium tracking-[0.22em] uppercase rounded-full hover:bg-cream/8 hover:border-cream/35 transition-all duration-500 backdrop-blur-sm"
           >
             What to Expect
           </Link>
@@ -108,13 +112,13 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1.5 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
+        transition={{ delay: 2.5, duration: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
       >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="w-[1px] h-10 bg-gradient-to-b from-transparent via-cream/40 to-transparent"
+          className="w-[1px] h-12 bg-gradient-to-b from-transparent via-cream/30 to-transparent"
         />
       </motion.div>
     </section>

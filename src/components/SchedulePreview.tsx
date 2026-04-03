@@ -112,7 +112,7 @@ export default function SchedulePreview() {
             Live Schedule
           </span>
           <h2 className="heading-xl text-[clamp(2rem,5vw,4.5rem)] text-charcoal mb-4">
-            Find Your <span className="italic text-pink-deep">Class</span>
+            Find Your <span className="italic text-pink-deep">Spot Today</span>
           </h2>
           <p className="body-text text-warm-gray text-base sm:text-lg max-w-lg mx-auto mb-6">
             Real-time availability. The waitlists do move!

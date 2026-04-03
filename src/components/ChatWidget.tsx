@@ -84,10 +84,10 @@ export default function ChatWidget() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setOpen(!open)}
-        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg flex items-center justify-center transition-colors duration-300 ${
+        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-500 ${
           open
-            ? "bg-charcoal text-cream"
-            : "bg-pink-hot text-cream neon-glow"
+            ? "bg-charcoal text-cream scale-95"
+            : "bg-pink-hot text-cream neon-glow-strong"
         }`}
         aria-label={open ? "Close chat" : "Open chat"}
       >
