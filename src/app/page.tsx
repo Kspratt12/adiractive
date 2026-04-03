@@ -15,6 +15,7 @@ import Location from "@/components/Location";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import PetalDivider from "@/components/PetalDivider";
+import VideoStrip from "@/components/VideoStrip";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <BrandIntro />
         <PetalDivider />
         <SchedulePreview />
+        <VideoStrip />
         <ScrollStory />
         <PetalDivider flip />
         <ClassExperience />

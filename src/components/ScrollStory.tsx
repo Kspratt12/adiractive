@@ -27,7 +27,7 @@ export default function ScrollStory() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 sm:py-20 lg:py-28 px-6 lg:px-16 bg-warm-white overflow-hidden"
+      className="relative py-12 sm:py-16 lg:py-20 px-6 lg:px-16 bg-warm-white overflow-hidden"
     >
       {/* Ambient glow decorations */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-pink-light/15 rounded-full blur-[150px]" />
@@ -37,20 +37,24 @@ export default function ScrollStory() {
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <motion.div
-          style={{ opacity: textOpacity, y: textY }}
-          className="text-center mb-16 sm:mb-20 lg:mb-28"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-10 sm:mb-14 lg:mb-16"
         >
-          <span className="label-text text-pink-hot mb-5 block tracking-[0.25em] text-[10px]">
+          <span className="label-text text-pink-hot mb-4 block tracking-[0.25em] text-[10px]">
             The Experience
           </span>
-          <h2 className="heading-xl text-[clamp(2.2rem,5.5vw,5rem)] text-charcoal mb-6">
-            More Than
-            <br />
-            <span className="italic text-pink-deep">a Workout</span>
+          <h2 className="heading-xl text-[clamp(2.2rem,5.5vw,5rem)] text-charcoal mb-4">
+            More Than <span className="italic text-pink-deep">a Workout</span>
           </h2>
+          <p className="body-text text-warm-gray text-base max-w-md mx-auto">
+            Strength, joy, and community in every class.
+          </p>
           <motion.div
             style={{ width: lineWidth }}
-            className="h-[1px] bg-gradient-to-r from-transparent via-pink-hot/40 to-transparent mx-auto"
+            className="h-[1px] bg-gradient-to-r from-transparent via-pink-hot/40 to-transparent mx-auto mt-6"
           />
         </motion.div>
 
