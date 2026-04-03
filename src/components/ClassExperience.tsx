@@ -58,7 +58,7 @@ export default function ClassExperience() {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16 lg:mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.4, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
@@ -73,7 +73,7 @@ export default function ClassExperience() {
             </h2>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.4, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             viewport={{ once: true }}
@@ -92,7 +92,7 @@ export default function ClassExperience() {
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0.4, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -114,7 +114,7 @@ export default function ClassExperience() {
         {/* Class Types */}
         <div className="mt-12 sm:mt-16 lg:mt-24 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.4, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
@@ -160,7 +160,7 @@ export default function ClassExperience() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.4, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             viewport={{ once: true }}

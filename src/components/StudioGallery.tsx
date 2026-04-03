@@ -48,7 +48,7 @@ export default function StudioGallery() {
     <section ref={ref} className="py-16 lg:py-24 px-6 lg:px-16" id="studio">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.4, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
@@ -70,7 +70,7 @@ export default function StudioGallery() {
 
         {/* Video Feature */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.4, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
@@ -100,7 +100,7 @@ export default function StudioGallery() {
           {galleryImages.map((img, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0.4, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               viewport={{ once: true, margin: "-50px" }}

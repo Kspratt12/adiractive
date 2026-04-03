@@ -105,7 +105,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.5 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}

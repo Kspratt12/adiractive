@@ -78,7 +78,7 @@ export default function Testimonials() {
     <section className="py-16 lg:py-24 px-6 lg:px-16 bg-warm-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.4, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
@@ -97,7 +97,7 @@ export default function Testimonials() {
 
         {/* Star rating */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.5 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
@@ -118,7 +118,7 @@ export default function Testimonials() {
           {visible.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0.4, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -175,7 +175,7 @@ export default function Testimonials() {
         {/* Show More / Less */}
         {testimonials.length > 3 && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.5 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}

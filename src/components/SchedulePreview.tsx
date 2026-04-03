@@ -98,7 +98,7 @@ export default function SchedulePreview() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.4, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
@@ -117,7 +117,7 @@ export default function SchedulePreview() {
 
         {/* Day Tabs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.5, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
@@ -174,7 +174,7 @@ export default function SchedulePreview() {
           {filteredClasses.map((cls, i) => (
             <motion.div
               key={`${activeDay}-${i}`}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.5, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: i * 0.07 }}
               className="group bg-white rounded-2xl p-5 sm:p-6 card-elevated hover:card-elevated-hover transition-all duration-500 border border-transparent hover:border-pink-light/30"
@@ -252,7 +252,7 @@ export default function SchedulePreview() {
 
         {/* View Full Schedule CTA */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.5 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}

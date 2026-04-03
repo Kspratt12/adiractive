@@ -9,7 +9,7 @@ export default function Boutique() {
       <div className="max-w-6xl mx-auto">
         {/* Gift Cards + Coming Soon */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.4, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}

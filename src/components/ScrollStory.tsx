@@ -37,7 +37,7 @@ export default function ScrollStory() {
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0.4, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
@@ -160,7 +160,7 @@ export default function ScrollStory() {
           ].map((item, i) => (
             <motion.div
               key={item.num}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0.4, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.8,
