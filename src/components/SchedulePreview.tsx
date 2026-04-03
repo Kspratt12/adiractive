@@ -7,23 +7,37 @@ import {
   useSchedule,
   formatTime,
   getESTDate,
-  getWeekDates,
   getUniqueTeachers,
   type MomenceSession,
 } from "@/lib/useSchedule";
 
 export default function SchedulePreview() {
   const { sessions, loading, error } = useSchedule();
-  const weekDates = useMemo(() => getWeekDates(), []);
-  const [activeDate, setActiveDate] = useState(weekDates[0]?.dateKey || "");
   const [activeInstructor, setActiveInstructor] = useState("All");
 
   const teachers = useMemo(() => getUniqueTeachers(sessions), [sessions]);
 
+  // Build date tabs from actual session dates (next 7 unique dates with classes)
+  const dateTabs = useMemo(() => {
+    const dateSet = new Set(sessions.map((s) => getESTDate(s.startsAt)));
+    const sorted = Array.from(dateSet).sort();
+    const todayStr = new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+
+    return sorted.slice(0, 7).map((dateKey) => {
+      const [y, m, d] = dateKey.split("-").map(Number);
+      const date = new Date(y, m - 1, d);
+      const label = date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+      const dayName = date.toLocaleDateString("en-US", { weekday: "short" });
+      return { dateKey, label, dayName, isToday: dateKey === todayStr };
+    });
+  }, [sessions]);
+
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const activeDate = selectedDate || dateTabs[0]?.dateKey || "";
+
   const filteredClasses = useMemo(() => {
     return sessions.filter((s) => {
-      const sessionDate = getESTDate(s.startsAt);
-      if (sessionDate !== activeDate) return false;
+      if (getESTDate(s.startsAt) !== activeDate) return false;
       if (activeInstructor !== "All" && s.teacher !== activeInstructor) return false;
       return true;
     });
@@ -47,55 +61,11 @@ export default function SchedulePreview() {
             Find Your <span className="italic text-pink-deep">Class</span>
           </h2>
           <p className="body-text text-warm-gray text-base sm:text-lg max-w-lg mx-auto">
-            Real-time availability from our booking system. The waitlists do move!
+            Real-time availability. The waitlists do move!
           </p>
         </motion.div>
 
-        {/* Week Date Tabs */}
-        <div className="flex sm:justify-center gap-1.5 sm:gap-2 mb-4 overflow-x-auto pb-2 px-1 scrollbar-hide -mx-1">
-          {weekDates.map((d) => (
-            <button
-              key={d.dateKey}
-              onClick={() => setActiveDate(d.dateKey)}
-              className={`shrink-0 px-3 sm:px-5 py-2.5 sm:py-3 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.12em] uppercase transition-all duration-300 whitespace-nowrap ${
-                activeDate === d.dateKey
-                  ? "bg-pink-hot text-cream neon-glow-strong"
-                  : "bg-white text-charcoal-light hover:bg-pink-light/20 card-elevated"
-              }`}
-            >
-              {d.isToday ? `Today` : d.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Instructor Filter */}
-        <div className="flex sm:justify-center gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 px-1 scrollbar-hide -mx-1">
-          <button
-            onClick={() => setActiveInstructor("All")}
-            className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
-              activeInstructor === "All"
-                ? "bg-charcoal text-cream"
-                : "bg-white/80 text-warm-gray hover:bg-pink-light/20 card-elevated"
-            }`}
-          >
-            All Instructors
-          </button>
-          {teachers.map((name) => (
-            <button
-              key={name}
-              onClick={() => setActiveInstructor(name)}
-              className={`flex items-center gap-1.5 shrink-0 px-3.5 sm:px-4 py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
-                activeInstructor === name
-                  ? "bg-charcoal text-cream"
-                  : "bg-white/80 text-warm-gray hover:bg-pink-light/20 card-elevated"
-              }`}
-            >
-              {name.split(" ")[0]}
-            </button>
-          ))}
-        </div>
-
-        {/* Loading State */}
+        {/* Loading */}
         {loading && (
           <div className="text-center py-16">
             <div className="w-8 h-8 border-2 border-pink-hot/30 border-t-pink-hot rounded-full animate-spin mx-auto mb-4" />
@@ -103,7 +73,7 @@ export default function SchedulePreview() {
           </div>
         )}
 
-        {/* Error State */}
+        {/* Error */}
         {error && !loading && (
           <div className="text-center py-12">
             <p className="body-text text-warm-gray mb-4">Unable to load live schedule.</p>
@@ -118,15 +88,58 @@ export default function SchedulePreview() {
           </div>
         )}
 
-        {/* Class Cards */}
+        {/* Schedule */}
         {!loading && !error && (
           <>
+            {/* Date Tabs - shows next 7 dates that have classes */}
+            <div className="flex sm:justify-center gap-1.5 sm:gap-2 mb-4 overflow-x-auto pb-2 px-1 scrollbar-hide -mx-1">
+              {dateTabs.map((d) => (
+                <button
+                  key={d.dateKey}
+                  onClick={() => setSelectedDate(d.dateKey)}
+                  className={`shrink-0 px-3 sm:px-5 py-2.5 sm:py-3 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.12em] uppercase transition-all duration-300 whitespace-nowrap ${
+                    activeDate === d.dateKey
+                      ? "bg-pink-hot text-cream neon-glow-strong"
+                      : "bg-white text-charcoal-light hover:bg-pink-light/20 card-elevated"
+                  }`}
+                >
+                  {d.isToday ? "Today" : d.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Instructor Filter */}
+            <div className="flex sm:justify-center gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 px-1 scrollbar-hide -mx-1">
+              <button
+                onClick={() => setActiveInstructor("All")}
+                className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
+                  activeInstructor === "All"
+                    ? "bg-charcoal text-cream"
+                    : "bg-white/80 text-warm-gray hover:bg-pink-light/20 card-elevated"
+                }`}
+              >
+                All Instructors
+              </button>
+              {teachers.map((name) => (
+                <button
+                  key={name}
+                  onClick={() => setActiveInstructor(name)}
+                  className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-full text-[9px] sm:text-[10px] font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
+                    activeInstructor === name
+                      ? "bg-charcoal text-cream"
+                      : "bg-white/80 text-warm-gray hover:bg-pink-light/20 card-elevated"
+                  }`}
+                >
+                  {name.split(" ")[0]}
+                </button>
+              ))}
+            </div>
+
+            {/* Class Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
               {filteredClasses.length === 0 && (
                 <div className="col-span-full text-center py-10">
-                  <p className="body-text text-warm-gray">
-                    No classes scheduled for this day.
-                  </p>
+                  <p className="body-text text-warm-gray">No classes for this selection.</p>
                 </div>
               )}
               {filteredClasses.map((cls) => (
@@ -160,7 +173,6 @@ function ClassCard({ session }: { session: MomenceSession }) {
   return (
     <div className="group bg-white rounded-2xl p-5 sm:p-6 card-elevated hover:card-elevated-hover transition-all duration-500 border border-transparent hover:border-pink-light/30">
       <div className="flex items-start gap-3.5 sm:gap-4 mb-5">
-        {/* Coach Avatar */}
         <div className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden ring-2 ring-pink-light/40 ring-offset-2 ring-offset-white">
           <img
             src={session.teacherPicture}
@@ -177,25 +189,20 @@ function ClassCard({ session }: { session: MomenceSession }) {
               ${session.fixedTicketPrice}
             </span>
           </div>
-          <p className="text-[13px] text-warm-gray">
-            {session.teacher}
-          </p>
+          <p className="text-[13px] text-warm-gray">{session.teacher}</p>
         </div>
       </div>
 
       <div className="flex items-center gap-5 mb-5 pl-[3.25rem] sm:pl-[3.5rem]">
         <div className="flex items-center gap-1.5 text-charcoal-light">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-50">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
+            <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
           </svg>
           <span className="text-[13px]">{formatTime(session.startsAt)}</span>
         </div>
         <div className="flex items-center gap-1.5 text-charcoal-light">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-50">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="16" y2="6" />
-            <line x1="8" y1="2" x2="8" y2="6" />
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" />
           </svg>
           <span className="text-[13px]">{session.durationMinutes} min</span>
         </div>
@@ -205,7 +212,7 @@ function ClassCard({ session }: { session: MomenceSession }) {
         {!isFull ? (
           <span className="text-xs text-warm-gray flex items-center gap-1.5">
             <span className={`inline-block w-1.5 h-1.5 rounded-full ${spotsLeft <= 2 ? "bg-pink-hot animate-pulse" : "bg-emerald-400"}`} />
-            {spotsLeft} {spotsLeft === 1 ? "spot" : "spots"} left
+            {spotsLeft}/{session.capacity} spots
           </span>
         ) : (
           <span className="text-xs text-pink-hot flex items-center gap-1.5">
