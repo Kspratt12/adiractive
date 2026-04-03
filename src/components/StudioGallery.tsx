@@ -5,32 +5,32 @@ import { useRef } from "react";
 
 const galleryImages = [
   {
-    src: "/vertical7.png",
+    src: "/jordan-jones1.png",
     alt: "Haven Reformer Studio neon sign",
     span: "col-span-2 row-span-2",
     height: "h-[400px] lg:h-[600px]",
   },
   {
-    src: "/vertical4.png",
-    alt: "Haven community group selfie",
+    src: "/haley-alford4.png",
+    alt: "Haven studio reformers and boutique",
     span: "col-span-1 row-span-1",
     height: "h-[280px]",
   },
   {
-    src: "/vertical5.png",
-    alt: "Member celebrating 100th class",
+    src: "/haley-alford3.png",
+    alt: "Shannon celebrating at Haven studio",
     span: "col-span-1 row-span-1",
     height: "h-[280px]",
   },
   {
-    src: "/vertical2.png",
-    alt: "Reformer workout under neon sign",
+    src: "/haley-alford1.png",
+    alt: "Reformer with pink LED lights",
     span: "col-span-1 row-span-1",
     height: "h-[320px]",
   },
   {
-    src: "https://adiractive.com/cdn/shop/files/IMG_4430.jpg?v=1774034409&width=1200",
-    alt: "Haven Reformer Studio reformers",
+    src: "/jordan-jones2.png",
+    alt: "Hot Moms Do Pilates grip socks with pink dumbbells",
     span: "col-span-1 row-span-1",
     height: "h-[320px]",
   },
@@ -68,7 +68,7 @@ export default function StudioGallery() {
           </p>
         </motion.div>
 
-        {/* Video Feature - cinematic crop */}
+        {/* Video Feature */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

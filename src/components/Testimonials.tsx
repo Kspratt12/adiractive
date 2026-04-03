@@ -10,6 +10,7 @@ const testimonials = [
     name: "Jennifer Cotten",
     detail: "Google Review",
     stars: 5,
+    photos: [],
   },
   {
     quote:
@@ -17,20 +18,23 @@ const testimonials = [
     name: "Cayla Morris",
     detail: "Google Review",
     stars: 5,
+    photos: [],
   },
   {
     quote:
       "Shannon, the owner, pours herself into everyone who walks through the door and makes classes such a fun atmosphere. She radiates joy, and puts everyone before herself while pushing you to become the strongest you can be. So glad I found this studio, it has become my favorite place to be.",
     name: "Haley Alford",
-    detail: "Google Review",
+    detail: "Google Review · 5 photos",
     stars: 5,
+    photos: ["/haley-alford1.png", "/haley-alford2.png", "/haley-alford3.png", "/haley-alford4.png", "/haley-alford5.png"],
   },
   {
     quote:
       "The classes are fun, dynamic, and genuinely engaging — you work hard without even realizing it because you're having a great time. The instructors are motivating, the vibe is vibing, and every session leaves me feeling stronger, and energized.",
     name: "Jordan Jones",
-    detail: "Google Review",
+    detail: "Google Review · 2 photos",
     stars: 5,
+    photos: ["/jordan-jones1.png", "/jordan-jones2.png"],
   },
   {
     quote:
@@ -38,6 +42,7 @@ const testimonials = [
     name: "Carole Tyler",
     detail: "Local Guide",
     stars: 5,
+    photos: [],
   },
   {
     quote:
@@ -45,6 +50,7 @@ const testimonials = [
     name: "Liesel Berry",
     detail: "Google Review",
     stars: 5,
+    photos: [],
   },
   {
     quote:
@@ -52,13 +58,15 @@ const testimonials = [
     name: "Tamara Hanson",
     detail: "Local Guide",
     stars: 5,
+    photos: [],
   },
   {
     quote:
       "Haven is such a great experience. Studio is beautiful, and Shannon makes you feel supported while still challenging you. I always leave thinking about when I can book my next class!!",
     name: "Yasmin",
-    detail: "Google Review",
+    detail: "Google Review · 1 photo",
     stars: 5,
+    photos: ["/yasmin1.png"],
   },
 ];
 
@@ -114,9 +122,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               viewport={{ once: true, margin: "-50px" }}
-              className={`relative bg-white rounded-2xl p-6 sm:p-8 card-elevated ${
-                i === 0 ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
+              className="relative bg-white rounded-2xl p-6 sm:p-8 card-elevated flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">
@@ -127,9 +133,27 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="body-text text-charcoal-light text-[14px] sm:text-[15px] leading-relaxed mb-6">
+              <p className="body-text text-charcoal-light text-[14px] sm:text-[15px] leading-relaxed mb-5 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
+
+              {/* Review Photos */}
+              {t.photos.length > 0 && (
+                <div className="flex gap-2 mb-5 overflow-x-auto scrollbar-hide">
+                  {t.photos.map((photo, pi) => (
+                    <div
+                      key={pi}
+                      className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden"
+                    >
+                      <img
+                        src={photo}
+                        alt={`${t.name} photo ${pi + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-pink-hot to-pink-light flex items-center justify-center">
