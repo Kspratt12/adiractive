@@ -3,19 +3,21 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/book", label: "Book a Class" },
-  { href: "#classes", label: "Classes" },
-  { href: "#membership", label: "Membership" },
-  { href: "#studio", label: "Studio" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#classes", label: "Classes" },
+  { href: "/#membership", label: "Membership" },
+  { href: "/#studio", label: "Studio" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -37,6 +39,21 @@ export default function Navigation() {
   const textColor = scrolled ? "text-charcoal" : "text-cream";
   const textColorMuted = scrolled ? "text-charcoal-light" : "text-cream/70";
   const hamburgerColor = scrolled ? "bg-charcoal" : "bg-cream";
+
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+
+    // If it's a hash link and we're already on the homepage, scroll manually
+    if (href.startsWith("/#") && pathname === "/") {
+      const id = href.replace("/#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  };
 
   return (
     <>
@@ -73,7 +90,8 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-[10px] font-medium tracking-[0.15em] uppercase transition-colors duration-300 relative group ${textColorMuted} hover:${textColor}`}
+                  onClick={() => handleNavClick(link.href)}
+                  className={`text-[10px] font-medium tracking-[0.15em] uppercase transition-colors duration-300 relative group ${textColorMuted} hover:text-pink-hot`}
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-pink-hot group-hover:w-full transition-all duration-300" />
@@ -136,7 +154,7 @@ export default function Navigation() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => handleNavClick(link.href)}
                     className="heading-lg text-2xl sm:text-3xl text-charcoal hover:text-pink-hot transition-colors"
                   >
                     {link.label}
