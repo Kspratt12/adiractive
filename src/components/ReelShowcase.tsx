@@ -4,12 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 const reels = [
-  { type: "video" as const, src: "/haven-reel-1.mp4", poster: "/vertical7.png" },
-  { type: "image" as const, src: "/haley-alford2.png" },
-  { type: "video" as const, src: "/haven-reel-2.mp4", poster: "/jordan-jones1.png" },
-  { type: "image" as const, src: "/yasmin1.png" },
-  { type: "video" as const, src: "/haven-reel-3.mp4", poster: "/haley-alford1.png" },
-  { type: "image" as const, src: "/haley-alford3.png" },
+  { type: "video" as const, src: "/haven-reel-1.mp4", poster: "/ig-thumb-1.jpg" },
+  { type: "image" as const, src: "/haley-alford5.png" },
+  { type: "video" as const, src: "/haven-reel-2.mp4", poster: "/ig-thumb-2.jpg" },
+  { type: "image" as const, src: "/coach2.jpg" },
+  { type: "video" as const, src: "/haven-reel-3.mp4", poster: "/vertical1.png" },
+  { type: "image" as const, src: "/vertical3.png" },
 ];
 
 function VideoReel({ src, poster }: { src: string; poster?: string }) {
@@ -98,13 +98,16 @@ export default function ReelShowcase() {
         className="flex gap-3 sm:gap-4 pl-6 lg:pl-16"
       >
         {reels.map((reel, i) => (
-          <motion.div
+          <motion.a
             key={i}
+            href="https://www.instagram.com/havenreformer"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0.4, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
             viewport={{ once: true }}
-            className="shrink-0 w-[200px] sm:w-[240px] lg:w-[280px] h-[320px] sm:h-[380px] lg:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden relative group"
+            className="shrink-0 w-[200px] sm:w-[240px] lg:w-[280px] h-[320px] sm:h-[380px] lg:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden relative group block"
           >
             {reel.type === "video" ? (
               <VideoReel src={reel.src} poster={reel.poster} />
@@ -145,7 +148,7 @@ export default function ReelShowcase() {
                 )}
               </svg>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
 
         {/* Follow CTA card at the end */}
