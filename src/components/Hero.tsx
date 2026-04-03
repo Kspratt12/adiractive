@@ -54,9 +54,9 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="body-text text-lg md:text-xl text-cream/80 mb-12 max-w-xl"
           >
-            Rooted in faith, community &amp; having fun. Strength-based
-            reformer workouts designed to make you feel strong, energized,
-            and accomplished.
+            A boutique reformer studio created to be a place of strength,
+            joy, and belonging. Come as you are and we&apos;ll meet you
+            there.
           </motion.p>
 
           <motion.div

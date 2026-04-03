@@ -23,11 +23,11 @@ export default function Boutique() {
                 Gift Cards
               </span>
               <h3 className="heading-lg text-2xl lg:text-3xl text-charcoal mb-3">
-                Gift the Haven Experience
+                Give the Gift of Haven
               </h3>
               <p className="body-text text-charcoal-light text-sm max-w-sm">
-                Give someone you love the gift of strength, community, and joy.
-                Available in any amount.
+                Gift cards are valid for new or existing members. Can be used for
+                studio classes or in the shop for apparel!
               </p>
             </div>
             <a

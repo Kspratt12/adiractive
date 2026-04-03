@@ -38,9 +38,9 @@ export default function FinalCTA() {
             <span className="italic text-pink-light neon-text-glow">Your Haven?</span>
           </h2>
           <p className="body-text text-cream/70 text-lg mb-12 max-w-lg mx-auto">
-            Step onto the reformer. Feel the music. Move with intention. Leave
-            stronger than you arrived, physically, mentally, and connected to
-            a community that lifts you up.
+            Movement is a gift and community is essential. Come as you are
+            and leave feeling stronger physically, lighter mentally, and
+            more connected to the community around you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
