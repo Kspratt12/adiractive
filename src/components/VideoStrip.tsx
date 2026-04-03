@@ -24,6 +24,12 @@ export default function VideoStrip() {
 
   return (
     <div ref={ref} className="relative w-full h-[180px] sm:h-[240px] lg:h-[300px] overflow-hidden">
+      {/* Static fallback always visible behind video */}
+      <img
+        src="/haley-alford4.png"
+        alt="Haven Reformer Studio"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
       <motion.div className="absolute inset-0" style={{ scale }}>
         <video
           ref={videoRef}
@@ -33,20 +39,10 @@ export default function VideoStrip() {
           playsInline
           preload="auto"
           className="w-full h-full object-cover object-center"
-          poster="/haley-alford4.png"
         >
           <source src="/haven-reel-2.mp4" type="video/mp4" />
         </video>
       </motion.div>
-      {/* Poster fallback for mobile if video doesn't autoplay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img
-          src="/haley-alford4.png"
-          alt="Haven Reformer Studio"
-          className="w-full h-full object-cover object-center opacity-0 [video:not([playing])~&]:opacity-100"
-          aria-hidden="true"
-        />
-      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-warm-white via-transparent to-warm-white pointer-events-none" />
     </div>
   );

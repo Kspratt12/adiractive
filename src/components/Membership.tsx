@@ -26,7 +26,7 @@ const plans = [
       "5 classes",
       "90-day validity",
       "No monthly commitment",
-      "~$23 per class",
+      "About $23 per class",
     ],
     accent: false,
     cta: "Get Class Pack",
@@ -39,7 +39,7 @@ const plans = [
     features: [
       "8 classes monthly",
       "Flexible scheduling",
-      "~$16 per class",
+      "About $16 per class",
       "Cancel anytime",
     ],
     accent: true,
