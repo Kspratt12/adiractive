@@ -101,7 +101,7 @@ export default function Hero() {
           </Link>
           <Link
             href="#classes"
-            className="inline-flex items-center justify-center px-10 sm:px-12 py-4.5 border border-cream/20 text-cream text-[11px] font-medium tracking-[0.22em] uppercase rounded-full hover:bg-cream/8 hover:border-cream/35 transition-all duration-500 backdrop-blur-sm"
+            className="inline-flex items-center justify-center px-10 sm:px-12 py-4.5 bg-cream/12 border border-cream/30 text-cream text-[11px] font-medium tracking-[0.22em] uppercase rounded-full hover:bg-cream/20 hover:border-cream/50 transition-all duration-500 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
           >
             What to Expect
           </Link>
