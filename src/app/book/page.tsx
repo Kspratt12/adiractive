@@ -13,30 +13,11 @@ import {
   getESTDate,
   getUniqueTeachers,
   groupByDate,
+  getNextNDays,
   type MomenceSession,
 } from "@/lib/useSchedule";
 
 type ViewMode = "week" | "month";
-
-function getNextNDays(n: number) {
-  const dates = [];
-  const now = new Date();
-  for (let i = 0; i < n; i++) {
-    const d = new Date(now);
-    d.setDate(d.getDate() + i);
-    const dateKey = d.toLocaleDateString("en-US", { timeZone: "America/New_York" });
-    const label = d.toLocaleDateString("en-US", {
-      timeZone: "America/New_York",
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    });
-    const dayName = d.toLocaleDateString("en-US", { timeZone: "America/New_York", weekday: "short" });
-    const dayNum = d.toLocaleDateString("en-US", { timeZone: "America/New_York", day: "numeric" });
-    dates.push({ label, dateKey, isToday: i === 0, dayName, dayNum });
-  }
-  return dates;
-}
 
 export default function BookPage() {
   const { sessions, loading, error } = useSchedule();
