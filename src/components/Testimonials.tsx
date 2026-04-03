@@ -1,83 +1,170 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const testimonials = [
   {
     quote:
-      "Haven changed my entire relationship with fitness. I walked in nervous and walked out feeling like I found my people. The energy is contagious.",
-    name: "Lauren M.",
-    detail: "Member since 2024",
+      "Haven has truly been a lifeline for me postpartum. Starting Pilates here has helped ward off postpartum anxiety and depression, strengthened my core in a way that feels safe and intentional, and has become the highlight of many of my sleep deprived days. Shannon, the owner, is such a light and truly has a gift to connect all these ladies in such a special place.",
+    name: "Jennifer Cotten",
+    detail: "Google Review",
+    stars: 5,
   },
   {
     quote:
-      "I have never felt so strong and so welcomed in a studio before. The instructors truly see you and meet you where you are. This place is special.",
-    name: "Ashley T.",
-    detail: "Unlimited Member",
+      "I absolutely love Haven! The hardest part for me was honestly just coming through the doors — I had never done Pilates before and I've never really been a \"gym girly,\" so I was nervous to try something new. But the instructors immediately made me feel comfortable and supported. I actually signed up for a membership after my very first class!",
+    name: "Cayla Morris",
+    detail: "Google Review",
+    stars: 5,
   },
   {
     quote:
-      "The music, the energy, the community. It all comes together in a way that makes you want to come back. Haven is my favorite hour of the week.",
-    name: "Rachel K.",
-    detail: "8-Class Member",
+      "Shannon, the owner, pours herself into everyone who walks through the door and makes classes such a fun atmosphere. She radiates joy, and puts everyone before herself while pushing you to become the strongest you can be. So glad I found this studio, it has become my favorite place to be.",
+    name: "Haley Alford",
+    detail: "Google Review",
+    stars: 5,
+  },
+  {
+    quote:
+      "The classes are fun, dynamic, and genuinely engaging — you work hard without even realizing it because you're having a great time. The instructors are motivating, the vibe is vibing, and every session leaves me feeling stronger, and energized.",
+    name: "Jordan Jones",
+    detail: "Google Review",
+    stars: 5,
+  },
+  {
+    quote:
+      "Haven is my happy place! From the moment I walk in, the big windows, the bright lights, the positive environment, it all sets my day on the right path! My muscles have never been as toned and strong! I leave every class feeling stronger.",
+    name: "Carole Tyler",
+    detail: "Local Guide",
+    stars: 5,
+  },
+  {
+    quote:
+      "Haven is the BEST! Shannon and everyone in class is so sweet and welcoming! The motto everyone is welcome is an understatement here, I'm a newbie to pilates but no one ever makes you feel bad for that. So thankful for this studio and this community!",
+    name: "Liesel Berry",
+    detail: "Google Review",
+    stars: 5,
+  },
+  {
+    quote:
+      "Shannon is simply amazing! She has created the cutest place for reformer Pilates and is as sweet as can be. She has the best merch, best music and you are guaranteed a great workout every single time.",
+    name: "Tamara Hanson",
+    detail: "Local Guide",
+    stars: 5,
+  },
+  {
+    quote:
+      "Haven is such a great experience. Studio is beautiful, and Shannon makes you feel supported while still challenging you. I always leave thinking about when I can book my next class!!",
+    name: "Yasmin",
+    detail: "Google Review",
+    stars: 5,
   },
 ];
 
 export default function Testimonials() {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? testimonials : testimonials.slice(0, 3);
+
   return (
-    <section className="py-24 lg:py-40 px-6 lg:px-12 bg-warm-white overflow-hidden">
+    <section className="py-28 lg:py-44 px-6 lg:px-16 bg-warm-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16 lg:mb-24"
+          className="text-center mb-6"
         >
-          <span className="label-text text-pink-hot mb-4 block">
-            Community
+          <span className="label-text text-pink-hot mb-5 block tracking-[0.25em] text-[10px]">
+            Community Love
           </span>
-          <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
+          <h2 className="heading-xl text-[clamp(2rem,5vw,4.5rem)] text-charcoal mb-5">
             Hear From Our <span className="italic text-pink-deep">Haven</span>
           </h2>
+          <p className="body-text text-warm-gray text-base sm:text-lg max-w-md mx-auto">
+            Real words from real people who found their place at Haven.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
+        {/* Star rating */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-2 mb-14 lg:mb-20"
+        >
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#E8447A" stroke="none">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            ))}
+          </div>
+          <span className="text-sm text-warm-gray ml-1">5.0 on Google</span>
+        </motion.div>
+
+        {/* Review Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          {visible.map((t, i) => (
             <motion.div
-              key={i}
+              key={t.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
+              className={`relative bg-white rounded-2xl p-6 sm:p-8 card-elevated ${
+                i === 0 ? "md:col-span-2 lg:col-span-1" : ""
+              }`}
             >
-              {/* Quote mark */}
-              <div className="heading-xl text-6xl text-pink-light/60 absolute top-4 left-6 leading-none select-none">
-                &ldquo;
+              {/* Stars */}
+              <div className="flex gap-0.5 mb-4">
+                {[...Array(t.stars)].map((_, s) => (
+                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#E8447A" stroke="none">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                ))}
               </div>
 
-              <div className="pt-8">
-                <p className="body-text text-charcoal-light text-lg mb-8 relative">
-                  {t.quote}
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-hot to-pink-light flex items-center justify-center">
-                    <span className="text-sm font-medium text-cream">
-                      {t.name[0]}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-charcoal">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-warm-gray">{t.detail}</p>
-                  </div>
+              <p className="body-text text-charcoal-light text-[14px] sm:text-[15px] leading-relaxed mb-6">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-pink-hot to-pink-light flex items-center justify-center">
+                  <span className="text-xs font-medium text-cream">
+                    {t.name.split(" ").map(n => n[0]).join("")}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-charcoal">
+                    {t.name}
+                  </p>
+                  <p className="text-[11px] text-warm-gray">{t.detail}</p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Show More / Less */}
+        {testimonials.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mt-10"
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-8 py-3 rounded-full text-[11px] font-medium tracking-[0.15em] uppercase border border-pink-hot/40 text-pink-hot hover:bg-pink-hot hover:text-cream transition-all duration-400"
+            >
+              {showAll ? "Show Less" : `Read More Reviews (${testimonials.length - 3}+)`}
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
