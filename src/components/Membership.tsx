@@ -87,13 +87,9 @@ export default function Membership() {
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {plans.map((plan, i) => (
-            <motion.div
+          {plans.map((plan) => (
+            <div
               key={plan.name}
-              initial={{ opacity: 0.4, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true, margin: "50px" }}
               className={`relative rounded-2xl p-8 transition-all duration-500 ${
                 plan.accent
                   ? "bg-pink-hot text-cream shadow-2xl scale-[1.02] lg:scale-105 neon-glow"
@@ -156,16 +152,12 @@ export default function Membership() {
               >
                 {plan.cta}
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Intro Offer */}
-        <motion.div
-          initial={{ opacity: 0.5, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+        <div
           className="mt-12 text-center"
         >
           <p className="body-text text-warm-gray">
@@ -174,7 +166,7 @@ export default function Membership() {
               Try an Intro to Haven class for just $15
             </Link>
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
