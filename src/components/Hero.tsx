@@ -68,7 +68,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="heading-xl text-[clamp(3rem,9vw,8rem)] text-cream mb-6 sm:mb-8 max-w-4xl leading-[1.0]"
+          className="heading-xl text-[clamp(2.8rem,6vw,5.5rem)] text-cream mb-6 sm:mb-8 max-w-3xl leading-[1.05]"
         >
           Your Haven
           <br />
