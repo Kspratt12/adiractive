@@ -51,7 +51,7 @@ function PetalShape({ variant }: { variant: number }) {
 export default function PetalDivider({ flip = false }: { flip?: boolean }) {
   return (
     <div
-      className={`relative w-full h-24 sm:h-28 lg:h-32 overflow-hidden pointer-events-none select-none ${
+      className={`relative w-full h-10 sm:h-16 lg:h-24 overflow-hidden pointer-events-none select-none ${
         flip ? "rotate-180" : ""
       }`}
     >

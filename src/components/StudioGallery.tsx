@@ -7,32 +7,32 @@ const galleryImages = [
   {
     src: "/jordan-jones1.png",
     alt: "Haven Reformer Studio neon sign",
-    span: "col-span-2 row-span-2",
-    height: "h-[400px] lg:h-[600px]",
+    span: "col-span-2 lg:row-span-2",
+    height: "h-[200px] sm:h-[300px] lg:h-[600px]",
   },
   {
     src: "/haley-alford4.png",
     alt: "Haven studio reformers and boutique",
     span: "col-span-1 row-span-1",
-    height: "h-[280px]",
+    height: "h-[160px] sm:h-[220px] lg:h-[280px]",
   },
   {
     src: "/haley-alford3.png",
     alt: "Shannon celebrating at Haven studio",
     span: "col-span-1 row-span-1",
-    height: "h-[280px]",
+    height: "h-[160px] sm:h-[220px] lg:h-[280px]",
   },
   {
     src: "/haley-alford1.png",
     alt: "Reformer with pink LED lights",
     span: "col-span-1 row-span-1",
-    height: "h-[320px]",
+    height: "h-[160px] sm:h-[220px] lg:h-[320px]",
   },
   {
     src: "/jordan-jones2.png",
     alt: "Hot Moms Do Pilates grip socks with pink dumbbells",
     span: "col-span-1 row-span-1",
-    height: "h-[320px]",
+    height: "h-[160px] sm:h-[220px] lg:h-[320px]",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function StudioGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 lg:mb-20 gap-6"
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 lg:mb-14 gap-4 lg:gap-6"
         >
           <div>
             <span className="label-text text-pink-hot mb-5 block tracking-[0.25em] text-[10px]">
@@ -74,25 +74,24 @@ export default function StudioGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-5 lg:mb-6 rounded-2xl sm:rounded-3xl overflow-hidden neon-glow-strong relative"
+          className="mb-5 lg:mb-6 rounded-2xl sm:rounded-3xl overflow-hidden neon-glow-strong relative h-[200px] sm:h-[300px] lg:h-[420px]"
         >
+          {/* Fallback image always visible behind video */}
+          <img
+            src="/haley-alford1.png"
+            alt="Haven studio with pink LED lights"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <video
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            poster="/haley-alford1.png"
-            className="w-full h-[250px] sm:h-[350px] lg:h-[420px] object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           >
             <source src="/haven-reel-3.mp4" type="video/mp4" />
           </video>
-          {/* Fallback image if video fails on mobile */}
-          <img
-            src="/haley-alford1.png"
-            alt="Haven studio with pink LED lights"
-            className="absolute inset-0 w-full h-full object-cover -z-10"
-          />
         </motion.div>
 
         {/* Gallery Grid */}
