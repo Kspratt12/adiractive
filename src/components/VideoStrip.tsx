@@ -37,7 +37,7 @@ export default function VideoStrip() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           className="w-full h-full object-cover object-center"
         >
           <source src="/haven-reel-2.mp4" type="video/mp4" />
