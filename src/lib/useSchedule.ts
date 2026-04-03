@@ -37,11 +37,8 @@ export function useSchedule() {
   const fetchSchedule = useCallback(async () => {
     try {
       setLoading(true);
-      // Fetch directly from Momence public API (CORS enabled)
-      // IMPORTANT: Momence returns different date ranges per pageSize.
-      // Tiny pageSize gives nearest sessions (today), larger skips ahead.
-      // Strategy: fetch page 1 with small sizes (1-10) to get today/near-term,
-      // then fetch pages with pageSize=20 for the rest of the month.
+      // Fetch from Momence public API in parallel for speed
+      // Small pageSizes grab today's sessions, larger ones get future weeks
       const allSessions: MomenceSession[] = [];
       const seenIds = new Set<number>();
 
@@ -54,25 +51,28 @@ export function useSchedule() {
         }
       };
 
-      // First: grab nearest sessions with tiny page sizes
-      for (const size of [3, 5, 8, 12]) {
-        const res = await fetch(`${MOMENCE_API}?pageSize=${size}&page=1`);
-        if (res.ok) {
+      // Fire all requests in parallel
+      const urls = [
+        `${MOMENCE_API}?pageSize=3&page=1`,
+        `${MOMENCE_API}?pageSize=8&page=1`,
+        `${MOMENCE_API}?pageSize=15&page=1`,
+        `${MOMENCE_API}?pageSize=15&page=2`,
+        `${MOMENCE_API}?pageSize=15&page=3`,
+        `${MOMENCE_API}?pageSize=15&page=4`,
+        `${MOMENCE_API}?pageSize=15&page=5`,
+        `${MOMENCE_API}?pageSize=15&page=6`,
+        `${MOMENCE_API}?pageSize=15&page=7`,
+        `${MOMENCE_API}?pageSize=15&page=8`,
+      ];
+
+      const responses = await Promise.all(urls.map((u) => fetch(u).catch(() => null)));
+      for (const res of responses) {
+        if (res && res.ok) {
           const data: ScheduleResponse = await res.json();
           addSessions(data.payload);
         }
       }
 
-      // Then: fetch pages with pageSize=20 for broader coverage
-      for (let page = 1; page <= 10; page++) {
-        const res = await fetch(`${MOMENCE_API}?pageSize=20&page=${page}`);
-        if (!res.ok) break;
-        const data: ScheduleResponse = await res.json();
-        if (data.payload.length === 0) break;
-        addSessions(data.payload);
-      }
-
-      // Sort by start time
       allSessions.sort((a, b) => a.startsAt.localeCompare(b.startsAt));
 
       setSessions(allSessions);

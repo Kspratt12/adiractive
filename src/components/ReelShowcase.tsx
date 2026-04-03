@@ -47,7 +47,7 @@ function VideoReel({ src, poster }: { src: string; poster?: string }) {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={src} type="video/mp4" />

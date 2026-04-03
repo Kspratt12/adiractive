@@ -115,7 +115,7 @@ export default function StudioGallery() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
             className="absolute inset-0 w-full h-full object-cover object-center"
           >
             <source src="/haven-reel-3.mp4" type="video/mp4" />
