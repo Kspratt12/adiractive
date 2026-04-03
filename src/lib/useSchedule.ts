@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
+const MOMENCE_API = "https://api.momence.com/host-plugins/host/62133/host-schedule/sessions";
+
 export interface MomenceSession {
   id: number;
   sessionName: string;
@@ -35,19 +37,26 @@ export function useSchedule() {
   const fetchSchedule = useCallback(async () => {
     try {
       setLoading(true);
-      // Fetch multiple pages to cover 30+ days
+      // Fetch directly from Momence public API (CORS enabled)
       const allSessions: MomenceSession[] = [];
-      for (let page = 1; page <= 4; page++) {
-        const res = await fetch(`/api/schedule?pageSize=200&page=${page}`);
-        if (!res.ok) throw new Error("Failed to fetch");
+      let page = 1;
+      const maxPages = 5;
+
+      while (page <= maxPages) {
+        const res = await fetch(`${MOMENCE_API}?pageSize=200&page=${page}`);
+        if (!res.ok) throw new Error(`API returned ${res.status}`);
         const data: ScheduleResponse = await res.json();
         const active = data.payload.filter((s) => !s.isCancelled);
         allSessions.push(...active);
-        if (allSessions.length >= data.pagination.totalCount) break;
+        // Stop if we got everything or this page had fewer than requested
+        if (allSessions.length >= data.pagination.totalCount || data.payload.length < 200) break;
+        page++;
       }
+
       setSessions(allSessions);
       setError(false);
-    } catch {
+    } catch (err) {
+      console.error("Schedule fetch error:", err);
       setError(true);
     } finally {
       setLoading(false);
@@ -63,10 +72,7 @@ export function useSchedule() {
 
 // Convert UTC ISO to YYYY-MM-DD in EST
 function toESTDateString(utcString: string): string {
-  const d = new Date(utcString);
-  // Format as YYYY-MM-DD in EST
-  const parts = d.toLocaleDateString("en-CA", { timeZone: "America/New_York" }).split("-");
-  return parts.join("-"); // Already YYYY-MM-DD from en-CA locale
+  return new Date(utcString).toLocaleDateString("en-CA", { timeZone: "America/New_York" });
 }
 
 // Get YYYY-MM-DD for today in EST
@@ -92,12 +98,10 @@ export function formatDateShort(utcString: string): string {
   });
 }
 
-// Get the EST date key (YYYY-MM-DD) for a session
 export function getESTDate(utcString: string): string {
   return toESTDateString(utcString);
 }
 
-// Group sessions by EST YYYY-MM-DD date
 export function groupByDate(sessions: MomenceSession[]): Record<string, MomenceSession[]> {
   const groups: Record<string, MomenceSession[]> = {};
   for (const session of sessions) {
@@ -105,67 +109,40 @@ export function groupByDate(sessions: MomenceSession[]): Record<string, MomenceS
     if (!groups[dateKey]) groups[dateKey] = [];
     groups[dateKey].push(session);
   }
-  // Sort groups by date
   const sorted: Record<string, MomenceSession[]> = {};
-  Object.keys(groups)
-    .sort()
-    .forEach((key) => {
-      sorted[key] = groups[key];
-    });
+  Object.keys(groups).sort().forEach((key) => { sorted[key] = groups[key]; });
   return sorted;
 }
 
-// Get unique teachers
 export function getUniqueTeachers(sessions: MomenceSession[]): string[] {
   return Array.from(new Set(sessions.map((s) => s.teacher))).sort();
 }
 
-// Build week dates starting from today (YYYY-MM-DD keys)
+function buildDateKey(y: number, m: number, d: number): string {
+  return `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+}
+
 export function getWeekDates(): { label: string; dateKey: string; isToday: boolean }[] {
-  const today = todayEST();
+  const [y, m, d] = todayEST().split("-").map(Number);
   const dates = [];
   for (let i = 0; i < 7; i++) {
-    // Build date by parsing today and adding days
-    const [y, m, d] = today.split("-").map(Number);
     const date = new Date(y, m - 1, d + i);
-    const dateKey = [
-      date.getFullYear(),
-      String(date.getMonth() + 1).padStart(2, "0"),
-      String(date.getDate()).padStart(2, "0"),
-    ].join("-");
-    const label = date.toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    });
+    const dateKey = buildDateKey(date.getFullYear(), date.getMonth(), date.getDate());
+    const label = date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
     dates.push({ label, dateKey, isToday: i === 0 });
   }
   return dates;
 }
 
-// Build N days from today
 export function getNextNDays(n: number): {
-  label: string;
-  dateKey: string;
-  isToday: boolean;
-  dayName: string;
-  dayNum: string;
+  label: string; dateKey: string; isToday: boolean; dayName: string; dayNum: string;
 }[] {
-  const today = todayEST();
+  const [y, m, d] = todayEST().split("-").map(Number);
   const dates = [];
   for (let i = 0; i < n; i++) {
-    const [y, m, d] = today.split("-").map(Number);
     const date = new Date(y, m - 1, d + i);
-    const dateKey = [
-      date.getFullYear(),
-      String(date.getMonth() + 1).padStart(2, "0"),
-      String(date.getDate()).padStart(2, "0"),
-    ].join("-");
-    const label = date.toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    });
+    const dateKey = buildDateKey(date.getFullYear(), date.getMonth(), date.getDate());
+    const label = date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
     const dayName = date.toLocaleDateString("en-US", { weekday: "short" });
     const dayNum = String(date.getDate());
     dates.push({ label, dateKey, isToday: i === 0, dayName, dayNum });
