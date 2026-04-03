@@ -66,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="heading-xl text-[clamp(2.8rem,6vw,5.5rem)] text-cream mb-6 sm:mb-8 max-w-3xl leading-[1.05]"
+          className="heading-xl text-[clamp(2.6rem,5.5vw,4.2rem)] text-cream mb-5 sm:mb-6 max-w-xl lg:max-w-2xl leading-[1.08]"
         >
           Your Haven
           <br />
@@ -79,7 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="body-text text-base sm:text-xl text-cream/65 mb-12 sm:mb-14 max-w-lg leading-[1.85]"
+          className="body-text text-base sm:text-lg text-cream/60 mb-10 sm:mb-12 max-w-sm lg:max-w-md leading-[1.8]"
         >
           A boutique reformer studio where strength meets softness,
           and every class feels like it was made for you.
