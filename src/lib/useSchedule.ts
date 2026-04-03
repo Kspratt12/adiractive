@@ -38,24 +38,42 @@ export function useSchedule() {
     try {
       setLoading(true);
       // Fetch directly from Momence public API (CORS enabled)
-      // IMPORTANT: Momence API returns different date ranges depending on pageSize.
-      // Small pageSize (20) returns nearest upcoming sessions.
-      // Large pageSize (200) skips weeks ahead. So we use pageSize=20 and fetch multiple pages.
+      // IMPORTANT: Momence returns different date ranges per pageSize.
+      // Tiny pageSize gives nearest sessions (today), larger skips ahead.
+      // Strategy: fetch page 1 with small sizes (1-10) to get today/near-term,
+      // then fetch pages with pageSize=20 for the rest of the month.
       const allSessions: MomenceSession[] = [];
       const seenIds = new Set<number>();
 
-      for (let page = 1; page <= 10; page++) {
-        const res = await fetch(`${MOMENCE_API}?pageSize=20&page=${page}`);
-        if (!res.ok) throw new Error(`API returned ${res.status}`);
-        const data: ScheduleResponse = await res.json();
-        if (data.payload.length === 0) break;
-        for (const s of data.payload) {
+      const addSessions = (payload: MomenceSession[]) => {
+        for (const s of payload) {
           if (!s.isCancelled && !seenIds.has(s.id)) {
             seenIds.add(s.id);
             allSessions.push(s);
           }
         }
+      };
+
+      // First: grab nearest sessions with tiny page sizes
+      for (const size of [3, 5, 8, 12]) {
+        const res = await fetch(`${MOMENCE_API}?pageSize=${size}&page=1`);
+        if (res.ok) {
+          const data: ScheduleResponse = await res.json();
+          addSessions(data.payload);
+        }
       }
+
+      // Then: fetch pages with pageSize=20 for broader coverage
+      for (let page = 1; page <= 10; page++) {
+        const res = await fetch(`${MOMENCE_API}?pageSize=20&page=${page}`);
+        if (!res.ok) break;
+        const data: ScheduleResponse = await res.json();
+        if (data.payload.length === 0) break;
+        addSessions(data.payload);
+      }
+
+      // Sort by start time
+      allSessions.sort((a, b) => a.startsAt.localeCompare(b.startsAt));
 
       setSessions(allSessions);
       setError(false);
