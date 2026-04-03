@@ -106,12 +106,16 @@ export default function StudioGallery() {
             alt="Haven studio with pink LED lights"
             className="absolute inset-0 w-full h-full object-cover"
           />
+          {/* eslint-disable-next-line */}
           <video
             ref={videoRef}
+            autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            // @ts-expect-error webkit attribute for iOS
+            webkit-playsinline="true"
             className="absolute inset-0 w-full h-full object-cover object-center"
           >
             <source src="/haven-reel-3.mp4" type="video/mp4" />
