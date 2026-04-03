@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const galleryImages = [
   {
@@ -38,11 +38,38 @@ const galleryImages = [
 
 export default function StudioGallery() {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
+  // Force play video when it scrolls into view (mobile fix)
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = videoContainerRef.current;
+    if (!video || !container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {
+              // Autoplay blocked - fallback image is showing, that's fine
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={ref} className="py-16 lg:py-24 px-6 lg:px-16" id="studio">
@@ -69,11 +96,8 @@ export default function StudioGallery() {
         </motion.div>
 
         {/* Video Feature */}
-        <motion.div
-          initial={{ opacity: 0.4, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <div
+          ref={videoContainerRef}
           className="mb-5 lg:mb-6 rounded-2xl sm:rounded-3xl overflow-hidden neon-glow-strong relative h-[200px] sm:h-[300px] lg:h-[420px]"
         >
           {/* Fallback image always visible behind video */}
@@ -83,16 +107,16 @@ export default function StudioGallery() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           <video
-            autoPlay
+            ref={videoRef}
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover object-center"
           >
             <source src="/haven-reel-3.mp4" type="video/mp4" />
           </video>
-        </motion.div>
+        </div>
 
         {/* Gallery Grid */}
         <motion.div style={{ y }} className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4">
