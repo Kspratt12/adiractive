@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/book", label: "Book a Class" },
   { href: "/#classes", label: "Classes" },
   { href: "/#membership", label: "Membership" },
-  { href: "/#studio", label: "Studio" },
+  { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];
 

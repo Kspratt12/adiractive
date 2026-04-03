@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 const footerLinks = {
   Studio: [
     { href: "/book", label: "Book a Class" },
-    { href: "#classes", label: "Class Options" },
-    { href: "#membership", label: "Membership" },
-    { href: "#studio", label: "The Studio" },
+    { href: "/#classes", label: "Class Options" },
+    { href: "/#membership", label: "Membership" },
+    { href: "/about", label: "About Us" },
   ],
   Connect: [
     { href: "https://www.instagram.com/havenreformer", label: "Instagram" },
@@ -17,9 +17,9 @@ const footerLinks = {
     { href: "https://adiractive.com/", label: "Gift Cards" },
   ],
   Info: [
-    { href: "#", label: "Privacy Policy" },
-    { href: "#", label: "Terms of Service" },
-    { href: "#", label: "Cancellation Policy" },
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
+    { href: "/terms", label: "Cancellation Policy" },
   ],
 };
 
