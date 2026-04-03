@@ -14,9 +14,9 @@
   --color-lilac-light: #E8E0F0;
   --color-lilac-dark: #9B8BB8;
   --color-neon-pink: #FF6B9D;
-  --color-charcoal: #2D2A26;
-  --color-charcoal-light: #4A4640;
-  --color-warm-gray: #8A847C;
+  --color-charcoal: #1A1714;
+  --color-charcoal-light: #3D3832;
+  --color-warm-gray: #7A746C;
   --color-warm-white: #FFFAF8;
   --color-rose: #D4637A;
   --color-rose-light: #F0B8C4;
@@ -31,87 +31,118 @@ html {
 
 body {
   background-color: #FDF8F6;
-  color: #2D2A26;
+  color: #1A1714;
   font-family: "DM Sans", system-ui, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background-color: #F0A6B0;
-  color: #2D2A26;
+  color: #1A1714;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FDF8F6;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E75480;
-  border-radius: 3px;
+  background: #E8447A;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #C73866;
 }
 
+/* Premium editorial typography */
 .heading-xl {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.heading-lg {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-.heading-lg {
+.heading-md {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
 
-.heading-md {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 400;
-  line-height: 1.2;
-}
-
 .body-text {
   font-family: "DM Sans", system-ui, sans-serif;
   font-weight: 400;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
 }
 
 .label-text {
   font-family: "DM Sans", system-ui, sans-serif;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
 }
 
+/* Premium glass */
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(240, 166, 176, 0.2);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(240, 166, 176, 0.15);
 }
 
-.gradient-fade-bottom {
-  background: linear-gradient(to bottom, transparent, rgba(253, 248, 246, 0.9));
-}
-
-.gradient-fade-top {
-  background: linear-gradient(to top, transparent, rgba(253, 248, 246, 0.9));
-}
-
-/* Pink glow effect matching the studio neon */
+/* Neon glow effects matching studio */
 .neon-glow {
-  box-shadow: 0 0 40px rgba(231, 84, 128, 0.15), 0 0 80px rgba(231, 84, 128, 0.05);
+  box-shadow: 0 0 30px rgba(232, 68, 122, 0.12), 0 0 60px rgba(232, 68, 122, 0.06);
+}
+
+.neon-glow-strong {
+  box-shadow: 0 0 40px rgba(232, 68, 122, 0.2), 0 0 80px rgba(232, 68, 122, 0.08), 0 20px 60px rgba(0,0,0,0.1);
 }
 
 .neon-text-glow {
-  text-shadow: 0 0 40px rgba(255, 107, 157, 0.3);
+  text-shadow: 0 0 60px rgba(255, 107, 157, 0.4), 0 0 120px rgba(255, 107, 157, 0.15);
+}
+
+/* Premium card shadows */
+.card-elevated {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.03);
+}
+
+.card-elevated-hover {
+  box-shadow: 0 4px 12px rgba(232,68,122,0.08), 0 12px 40px rgba(232,68,122,0.1), 0 24px 60px rgba(0,0,0,0.06);
+}
+
+/* Smooth reveal animation helper */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide scrollbar for day tabs */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

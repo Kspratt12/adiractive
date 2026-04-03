@@ -7,50 +7,45 @@ import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import Link from "next/link";
 
-const instructors = ["All Instructors", "Coach Sarah", "Coach Jenna", "Coach Mia"];
-const classTypes = ["All Classes", "Haven Signature", "Intro to Haven"];
+const instructorList = ["All Instructors", "Shannon Daly", "Erika Parker", "Ginevra Myers", "Kasey Everette", "Megan Cornell"];
+const classTypes = ["All Classes", "Signature 50 Minute Class", "Intro to Haven"];
 
 const coachImages: Record<string, string> = {
-  "Coach Sarah": "/brand1.jpg",
-  "Coach Jenna": "/brand2.jpg",
-  "Coach Mia": "/coach1.jpg",
+  "Shannon Daly": "/brand1.jpg",
+  "Erika Parker": "/coach1.jpg",
+  "Ginevra Myers": "/brand2.jpg",
+  "Kasey Everette": "/coach2.jpg",
+  "Megan Cornell": "/vertical5.png",
 };
 
 const fullSchedule = [
-  // Monday
-  { day: "Monday", date: "Apr 7", time: "6:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 3, price: "$30" },
-  { day: "Monday", date: "Apr 7", time: "9:00 AM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 0, price: "$30" },
-  { day: "Monday", date: "Apr 7", time: "12:00 PM", name: "Intro to Haven", instructor: "Coach Sarah", duration: "25 min", spots: 6, price: "$15" },
-  { day: "Monday", date: "Apr 7", time: "5:30 PM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 2, price: "$30" },
-  { day: "Monday", date: "Apr 7", time: "7:00 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 4, price: "$30" },
-  // Tuesday
-  { day: "Tuesday", date: "Apr 8", time: "6:00 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 4, price: "$30" },
-  { day: "Tuesday", date: "Apr 8", time: "9:30 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 1, price: "$30" },
-  { day: "Tuesday", date: "Apr 8", time: "12:00 PM", name: "Intro to Haven", instructor: "Coach Jenna", duration: "25 min", spots: 5, price: "$15" },
-  { day: "Tuesday", date: "Apr 8", time: "4:30 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 5, price: "$30" },
-  { day: "Tuesday", date: "Apr 8", time: "6:00 PM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 0, price: "$30" },
-  // Wednesday
-  { day: "Wednesday", date: "Apr 9", time: "6:00 AM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 2, price: "$30" },
-  { day: "Wednesday", date: "Apr 9", time: "9:00 AM", name: "Intro to Haven", instructor: "Coach Mia", duration: "25 min", spots: 8, price: "$15" },
-  { day: "Wednesday", date: "Apr 9", time: "12:00 PM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 3, price: "$30" },
-  { day: "Wednesday", date: "Apr 9", time: "5:30 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 1, price: "$30" },
-  // Thursday
-  { day: "Thursday", date: "Apr 10", time: "6:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 5, price: "$30" },
-  { day: "Thursday", date: "Apr 10", time: "9:30 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 2, price: "$30" },
-  { day: "Thursday", date: "Apr 10", time: "12:00 PM", name: "Intro to Haven", instructor: "Coach Sarah", duration: "25 min", spots: 7, price: "$15" },
-  { day: "Thursday", date: "Apr 10", time: "5:30 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 0, price: "$30" },
-  { day: "Thursday", date: "Apr 10", time: "7:00 PM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 3, price: "$30" },
-  // Friday
-  { day: "Friday", date: "Apr 11", time: "6:00 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 6, price: "$30" },
-  { day: "Friday", date: "Apr 11", time: "9:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 4, price: "$30" },
-  { day: "Friday", date: "Apr 11", time: "12:00 PM", name: "Intro to Haven", instructor: "Coach Jenna", duration: "25 min", spots: 7, price: "$15" },
-  // Saturday
-  { day: "Saturday", date: "Apr 12", time: "8:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 1, price: "$30" },
-  { day: "Saturday", date: "Apr 12", time: "9:30 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 3, price: "$30" },
-  { day: "Saturday", date: "Apr 12", time: "11:00 AM", name: "Intro to Haven", instructor: "Coach Jenna", duration: "25 min", spots: 5, price: "$15" },
-  // Sunday
-  { day: "Sunday", date: "Apr 13", time: "9:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 2, price: "$30" },
-  { day: "Sunday", date: "Apr 13", time: "10:30 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 4, price: "$30" },
+  { day: "Monday", date: "Apr 7", time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 0, price: "$30" },
+  { day: "Monday", date: "Apr 7", time: "9:00 AM", name: "Signature 50 Minute Class", instructor: "Erika Parker", duration: "50 min", spots: 3, price: "$30" },
+  { day: "Monday", date: "Apr 7", time: "12:00 PM", name: "Intro to Haven", instructor: "Shannon Daly", duration: "25 min", spots: 6, price: "$15" },
+  { day: "Monday", date: "Apr 7", time: "5:30 PM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 2, price: "$30" },
+  { day: "Monday", date: "Apr 7", time: "7:00 PM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 4, price: "$30" },
+  { day: "Tuesday", date: "Apr 8", time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 4, price: "$30" },
+  { day: "Tuesday", date: "Apr 8", time: "9:30 AM", name: "Signature 50 Minute Class", instructor: "Kasey Everette", duration: "50 min", spots: 1, price: "$30" },
+  { day: "Tuesday", date: "Apr 8", time: "12:00 PM", name: "Intro to Haven", instructor: "Erika Parker", duration: "25 min", spots: 5, price: "$15" },
+  { day: "Tuesday", date: "Apr 8", time: "4:30 PM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 5, price: "$30" },
+  { day: "Tuesday", date: "Apr 8", time: "6:00 PM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 0, price: "$30" },
+  { day: "Wednesday", date: "Apr 9", time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 2, price: "$30" },
+  { day: "Wednesday", date: "Apr 9", time: "9:00 AM", name: "Intro to Haven", instructor: "Shannon Daly", duration: "25 min", spots: 8, price: "$15" },
+  { day: "Wednesday", date: "Apr 9", time: "12:00 PM", name: "Signature 50 Minute Class", instructor: "Kasey Everette", duration: "50 min", spots: 3, price: "$30" },
+  { day: "Wednesday", date: "Apr 9", time: "5:30 PM", name: "Signature 50 Minute Class", instructor: "Erika Parker", duration: "50 min", spots: 1, price: "$30" },
+  { day: "Thursday", date: "Apr 10", time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 5, price: "$30" },
+  { day: "Thursday", date: "Apr 10", time: "9:30 AM", name: "Signature 50 Minute Class", instructor: "Erika Parker", duration: "50 min", spots: 2, price: "$30" },
+  { day: "Thursday", date: "Apr 10", time: "12:00 PM", name: "Intro to Haven", instructor: "Megan Cornell", duration: "25 min", spots: 7, price: "$15" },
+  { day: "Thursday", date: "Apr 10", time: "5:30 PM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 0, price: "$30" },
+  { day: "Thursday", date: "Apr 10", time: "7:00 PM", name: "Signature 50 Minute Class", instructor: "Kasey Everette", duration: "50 min", spots: 3, price: "$30" },
+  { day: "Friday", date: "Apr 11", time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 0, price: "$30" },
+  { day: "Friday", date: "Apr 11", time: "9:00 AM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 4, price: "$30" },
+  { day: "Friday", date: "Apr 11", time: "12:00 PM", name: "Intro to Haven", instructor: "Erika Parker", duration: "25 min", spots: 7, price: "$15" },
+  { day: "Saturday", date: "Apr 12", time: "8:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 1, price: "$30" },
+  { day: "Saturday", date: "Apr 12", time: "9:30 AM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 3, price: "$30" },
+  { day: "Saturday", date: "Apr 12", time: "11:00 AM", name: "Intro to Haven", instructor: "Kasey Everette", duration: "25 min", spots: 5, price: "$15" },
+  { day: "Sunday", date: "Apr 13", time: "9:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 2, price: "$30" },
+  { day: "Sunday", date: "Apr 13", time: "10:30 AM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 4, price: "$30" },
 ];
 
 const uniqueDays = [...new Set(fullSchedule.map((c) => c.day))];
@@ -84,7 +79,7 @@ export default function BookPage() {
       <Navigation />
       <main className="min-h-screen pt-24">
         {/* Header */}
-        <section className="px-6 lg:px-12 py-16 lg:py-24">
+        <section className="px-6 lg:px-16 py-16 lg:py-24">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -93,17 +88,17 @@ export default function BookPage() {
             >
               <Link
                 href="/"
-                className="label-text text-warm-gray hover:text-charcoal transition-colors mb-6 inline-flex items-center gap-2"
+                className="label-text text-[10px] text-warm-gray hover:text-pink-hot transition-colors mb-6 inline-flex items-center gap-2 tracking-[0.2em]"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
                 Back Home
               </Link>
-              <h1 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal mt-4 mb-4">
+              <h1 className="heading-xl text-[clamp(2.2rem,5vw,4.5rem)] text-charcoal mt-4 mb-4">
                 Book a <span className="italic text-pink-deep">Class</span>
               </h1>
-              <p className="body-text text-charcoal-light text-lg max-w-xl">
+              <p className="body-text text-warm-gray text-base sm:text-lg max-w-xl">
                 The waitlists do move, so don&apos;t be afraid to hop on one or a
                 few! Find the class that fits your schedule and flow.
               </p>
@@ -112,22 +107,21 @@ export default function BookPage() {
         </section>
 
         {/* Filters */}
-        <section className="px-6 lg:px-12 pb-8">
+        <section className="px-6 lg:px-16 pb-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="flex flex-col md:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
-              {/* Day Filter */}
-              <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0">
+              <div className="flex gap-1.5 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
                 <button
                   onClick={() => setSelectedDay("All")}
-                  className={`px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase whitespace-nowrap transition-all duration-300 ${
+                  className={`px-4 py-2.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-400 ${
                     selectedDay === "All"
-                      ? "bg-charcoal text-cream"
-                      : "bg-white text-charcoal-light hover:bg-pink-light/30"
+                      ? "bg-pink-hot text-cream neon-glow"
+                      : "bg-white text-charcoal-light hover:bg-pink-light/20 card-elevated"
                   }`}
                 >
                   All Days
@@ -136,10 +130,10 @@ export default function BookPage() {
                   <button
                     key={day}
                     onClick={() => setSelectedDay(day)}
-                    className={`px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase whitespace-nowrap transition-all duration-300 ${
+                    className={`px-4 py-2.5 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-400 ${
                       selectedDay === day
-                        ? "bg-charcoal text-cream"
-                        : "bg-white text-charcoal-light hover:bg-pink-light/30"
+                        ? "bg-pink-hot text-cream neon-glow"
+                        : "bg-white text-charcoal-light hover:bg-pink-light/20 card-elevated"
                     }`}
                   >
                     {day.slice(0, 3)}
@@ -147,29 +141,23 @@ export default function BookPage() {
                 ))}
               </div>
 
-              {/* Instructor Filter */}
               <select
                 value={selectedInstructor}
                 onChange={(e) => setSelectedInstructor(e.target.value)}
-                className="px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase bg-white text-charcoal-light border border-cream-dark focus:outline-none focus:ring-2 focus:ring-pink-hot appearance-none cursor-pointer"
+                className="px-4 py-2.5 rounded-full text-[10px] font-medium tracking-[0.12em] uppercase bg-white text-charcoal-light border border-cream-dark/50 focus:outline-none focus:ring-2 focus:ring-pink-hot/30 focus:border-pink-hot/50 appearance-none cursor-pointer card-elevated"
               >
-                {instructors.map((i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
+                {instructorList.map((i) => (
+                  <option key={i} value={i}>{i}</option>
                 ))}
               </select>
 
-              {/* Class Type Filter */}
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="px-4 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase bg-white text-charcoal-light border border-cream-dark focus:outline-none focus:ring-2 focus:ring-pink-hot appearance-none cursor-pointer"
+                className="px-4 py-2.5 rounded-full text-[10px] font-medium tracking-[0.12em] uppercase bg-white text-charcoal-light border border-cream-dark/50 focus:outline-none focus:ring-2 focus:ring-pink-hot/30 focus:border-pink-hot/50 appearance-none cursor-pointer card-elevated"
               >
                 {classTypes.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
+                  <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </motion.div>
@@ -177,7 +165,7 @@ export default function BookPage() {
         </section>
 
         {/* Schedule */}
-        <section className="px-6 lg:px-12 pb-24">
+        <section className="px-6 lg:px-16 pb-24">
           <div className="max-w-6xl mx-auto">
             <AnimatePresence mode="wait">
               {Object.entries(grouped).length > 0 ? (
@@ -191,7 +179,7 @@ export default function BookPage() {
                 >
                   {Object.entries(grouped).map(([dayLabel, classes]) => (
                     <div key={dayLabel}>
-                      <h3 className="heading-md text-xl text-charcoal mb-4 sticky top-20 bg-cream/90 backdrop-blur-sm py-3 z-10">
+                      <h3 className="heading-md text-lg text-charcoal mb-4 sticky top-20 bg-cream/90 backdrop-blur-sm py-3 z-10 border-b border-pink-light/20">
                         {dayLabel}
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -201,11 +189,10 @@ export default function BookPage() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.35, delay: i * 0.05 }}
-                            className="group bg-white rounded-2xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
+                            className="group bg-white rounded-2xl p-5 sm:p-6 card-elevated hover:card-elevated-hover transition-all duration-500 border border-transparent hover:border-pink-light/30"
                           >
-                            {/* Coach + Info */}
                             <div className="flex items-start gap-3 mb-4">
-                              <div className="shrink-0 w-11 h-11 rounded-full overflow-hidden ring-2 ring-pink-light/50">
+                              <div className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-pink-light/40 ring-offset-2 ring-offset-white">
                                 <img
                                   src={coachImages[cls.instructor] || "/brand1.jpg"}
                                   alt={cls.instructor}
@@ -214,14 +201,14 @@ export default function BookPage() {
                               </div>
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between mb-0.5">
-                                  <span className="heading-md text-lg text-charcoal">
+                                  <span className="heading-md text-base sm:text-lg text-charcoal">
                                     {cls.time}
                                   </span>
-                                  <span className="heading-md text-base text-pink-hot">
+                                  <span className="heading-md text-sm sm:text-base text-pink-hot">
                                     {cls.price}
                                   </span>
                                 </div>
-                                <h4 className="font-medium text-charcoal text-sm truncate">
+                                <h4 className="font-medium text-charcoal text-[13px] truncate">
                                   {cls.name}
                                 </h4>
                                 <p className="text-xs text-warm-gray">
@@ -230,32 +217,30 @@ export default function BookPage() {
                               </div>
                             </div>
 
-                            {/* Availability & CTA */}
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between pl-[3rem] sm:pl-[3.25rem]">
                               {cls.spots > 0 ? (
                                 <span className="text-xs text-warm-gray flex items-center gap-1.5">
-                                  <span
-                                    className={`inline-block w-2 h-2 rounded-full ${
-                                      cls.spots <= 2 ? "bg-rose" : "bg-green-400"
-                                    }`}
-                                  />
+                                  <span className={`inline-block w-1.5 h-1.5 rounded-full ${cls.spots <= 2 ? "bg-pink-hot animate-pulse" : "bg-emerald-400"}`} />
                                   {cls.spots} {cls.spots === 1 ? "spot" : "spots"} left
                                 </span>
                               ) : (
                                 <span className="text-xs text-pink-hot flex items-center gap-1.5">
-                                  <span className="inline-block w-2 h-2 rounded-full bg-rose/50" />
+                                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-pink-hot/40" />
                                   Waitlist
                                 </span>
                               )}
-                              <button
-                                className={`px-5 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 ${
+                              <a
+                                href="https://momence.com/u/haven-reformer-studio-SkXWwM"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`px-5 py-2 rounded-full text-[10px] font-medium tracking-[0.12em] uppercase transition-all duration-400 inline-block ${
                                   cls.spots > 0
-                                    ? "bg-pink-hot text-cream hover:bg-pink-deep"
-                                    : "border border-rose text-pink-hot hover:bg-rose hover:text-cream"
+                                    ? "bg-pink-hot text-cream hover:bg-pink-deep neon-glow"
+                                    : "border border-pink-hot/60 text-pink-hot hover:bg-pink-hot hover:text-cream"
                                 }`}
                               >
                                 {cls.spots > 0 ? "Book" : "Waitlist"}
-                              </button>
+                              </a>
                             </div>
                           </motion.div>
                         ))}
@@ -264,11 +249,7 @@ export default function BookPage() {
                   ))}
                 </motion.div>
               ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center py-16"
-                >
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
                   <p className="body-text text-warm-gray text-lg">
                     No classes match your filters. Try adjusting your selection.
                   </p>
@@ -278,57 +259,45 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* Info Banner */}
-        <section className="px-6 lg:px-12 pb-24">
+        {/* Info Cards */}
+        <section className="px-6 lg:px-16 pb-24">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-pink-light/30 flex items-center justify-center text-pink-hot mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 card-elevated">
+                <div className="w-11 h-11 rounded-xl bg-pink-light/30 flex items-center justify-center text-pink-hot mb-4">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M12 2L2 7l10 5 10-5-10-5z" />
                     <path d="M2 17l10 5 10-5" />
                     <path d="M2 12l10 5 10-5" />
                   </svg>
                 </div>
-                <h4 className="heading-md text-lg text-charcoal mb-2">
-                  New Here?
-                </h4>
-                <p className="body-text text-sm text-charcoal-light">
-                  Start with an Intro to Haven class ($15). Learn the reformer,
-                  meet your coaches, and get comfortable before your first
-                  signature class.
+                <h4 className="heading-md text-base text-charcoal mb-2">New Here?</h4>
+                <p className="body-text text-[13px] text-warm-gray">
+                  Start with an Intro to Haven class ($15). Learn the reformer, meet your coaches, and get comfortable.
                 </p>
               </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-lilac-light/50 flex items-center justify-center text-lilac-dark mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 card-elevated">
+                <div className="w-11 h-11 rounded-xl bg-lilac-light/40 flex items-center justify-center text-lilac-dark mb-4">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 8v4l3 3" />
                   </svg>
                 </div>
-                <h4 className="heading-md text-lg text-charcoal mb-2">
-                  Waitlist Tips
-                </h4>
-                <p className="body-text text-sm text-charcoal-light">
-                  Waitlists do move! Don&apos;t be afraid to hop on one or a
-                  few. You&apos;ll be notified as soon as a spot opens up.
+                <h4 className="heading-md text-base text-charcoal mb-2">Waitlist Tips</h4>
+                <p className="body-text text-[13px] text-warm-gray">
+                  Waitlists do move! Don&apos;t be afraid to hop on one or a few. You&apos;ll be notified when a spot opens.
                 </p>
               </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
-                <div className="w-12 h-12 rounded-2xl bg-pink-light/30 flex items-center justify-center text-pink-hot mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 card-elevated">
+                <div className="w-11 h-11 rounded-xl bg-pink-light/30 flex items-center justify-center text-pink-hot mb-4">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                   </svg>
                 </div>
-                <h4 className="heading-md text-lg text-charcoal mb-2">
-                  Save With Membership
-                </h4>
-                <p className="body-text text-sm text-charcoal-light">
-                  Unlimited classes from $159.99/mo. Or grab an 8-class pack for
-                  $129.99/mo. The more you move, the more you save.
+                <h4 className="heading-md text-base text-charcoal mb-2">Save With Membership</h4>
+                <p className="body-text text-[13px] text-warm-gray">
+                  Unlimited classes from $159.99/mo or grab an 8-class pack for $129.99/mo.
                 </p>
               </div>
             </div>

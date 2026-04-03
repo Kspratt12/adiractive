@@ -11,6 +11,7 @@ import Membership from "@/components/Membership";
 import Testimonials from "@/components/Testimonials";
 import Boutique from "@/components/Boutique";
 import FinalCTA from "@/components/FinalCTA";
+import Location from "@/components/Location";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 
@@ -29,6 +30,7 @@ export default function Home() {
         <Testimonials />
         <Boutique />
         <FinalCTA />
+        <Location />
       </main>
       <Footer />
       <ChatWidget />

@@ -5,9 +5,19 @@ import { useState } from "react";
 import Link from "next/link";
 
 const coachImages: Record<string, string> = {
-  "Coach Sarah": "/brand1.jpg",
-  "Coach Jenna": "/brand2.jpg",
-  "Coach Mia": "/coach1.jpg",
+  "Shannon Daly": "/brand1.jpg",
+  "Erika Parker": "/coach1.jpg",
+  "Ginevra Myers": "/brand2.jpg",
+  "Kasey Everette": "/coach2.jpg",
+  "Megan Cornell": "/vertical5.png",
+};
+
+const coachInitials: Record<string, string> = {
+  "Shannon Daly": "SD",
+  "Erika Parker": "EP",
+  "Ginevra Myers": "GM",
+  "Kasey Everette": "KE",
+  "Megan Cornell": "MC",
 };
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -16,59 +26,60 @@ const scheduleData = [
   {
     day: "Mon",
     classes: [
-      { time: "6:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 3, price: "$30" },
-      { time: "9:00 AM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 0, price: "$30" },
-      { time: "12:00 PM", name: "Intro to Haven", instructor: "Coach Sarah", duration: "25 min", spots: 6, price: "$15" },
-      { time: "5:30 PM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 2, price: "$30" },
+      { time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 2, price: "$30" },
+      { time: "9:00 AM", name: "Signature 50 Minute Class", instructor: "Erika Parker", duration: "50 min", spots: 0, price: "$30" },
+      { time: "12:00 PM", name: "Intro to Haven", instructor: "Shannon Daly", duration: "25 min", spots: 6, price: "$15" },
+      { time: "5:30 PM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 3, price: "$30" },
     ],
   },
   {
     day: "Tue",
     classes: [
-      { time: "6:00 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 4, price: "$30" },
-      { time: "9:30 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 1, price: "$30" },
-      { time: "4:30 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 5, price: "$30" },
-      { time: "6:00 PM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 0, price: "$30" },
+      { time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 4, price: "$30" },
+      { time: "9:30 AM", name: "Signature 50 Minute Class", instructor: "Kasey Everette", duration: "50 min", spots: 1, price: "$30" },
+      { time: "4:30 PM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 5, price: "$30" },
+      { time: "6:00 PM", name: "Signature 50 Minute Class", instructor: "Erika Parker", duration: "50 min", spots: 0, price: "$30" },
     ],
   },
   {
     day: "Wed",
     classes: [
-      { time: "6:00 AM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 2, price: "$30" },
-      { time: "9:00 AM", name: "Intro to Haven", instructor: "Coach Mia", duration: "25 min", spots: 8, price: "$15" },
-      { time: "12:00 PM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 3, price: "$30" },
-      { time: "5:30 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 1, price: "$30" },
+      { time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 2, price: "$30" },
+      { time: "9:00 AM", name: "Intro to Haven", instructor: "Shannon Daly", duration: "25 min", spots: 8, price: "$15" },
+      { time: "12:00 PM", name: "Signature 50 Minute Class", instructor: "Kasey Everette", duration: "50 min", spots: 3, price: "$30" },
+      { time: "5:30 PM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 1, price: "$30" },
     ],
   },
   {
     day: "Thu",
     classes: [
-      { time: "6:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 5, price: "$30" },
-      { time: "9:30 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 2, price: "$30" },
-      { time: "5:30 PM", name: "Haven Signature", instructor: "Coach Jenna", duration: "50 min", spots: 0, price: "$30" },
+      { time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 5, price: "$30" },
+      { time: "9:30 AM", name: "Signature 50 Minute Class", instructor: "Erika Parker", duration: "50 min", spots: 2, price: "$30" },
+      { time: "5:30 PM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 0, price: "$30" },
+      { time: "7:00 PM", name: "Signature 50 Minute Class", instructor: "Kasey Everette", duration: "50 min", spots: 3, price: "$30" },
     ],
   },
   {
     day: "Fri",
     classes: [
-      { time: "6:00 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 6, price: "$30" },
-      { time: "9:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 4, price: "$30" },
-      { time: "12:00 PM", name: "Intro to Haven", instructor: "Coach Jenna", duration: "25 min", spots: 7, price: "$15" },
+      { time: "5:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 0, price: "$30" },
+      { time: "9:00 AM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 4, price: "$30" },
+      { time: "12:00 PM", name: "Intro to Haven", instructor: "Erika Parker", duration: "25 min", spots: 7, price: "$15" },
     ],
   },
   {
     day: "Sat",
     classes: [
-      { time: "8:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 1, price: "$30" },
-      { time: "9:30 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 3, price: "$30" },
-      { time: "11:00 AM", name: "Intro to Haven", instructor: "Coach Jenna", duration: "25 min", spots: 5, price: "$15" },
+      { time: "8:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 1, price: "$30" },
+      { time: "9:30 AM", name: "Signature 50 Minute Class", instructor: "Ginevra Myers", duration: "50 min", spots: 3, price: "$30" },
+      { time: "11:00 AM", name: "Intro to Haven", instructor: "Kasey Everette", duration: "25 min", spots: 5, price: "$15" },
     ],
   },
   {
     day: "Sun",
     classes: [
-      { time: "9:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 2, price: "$30" },
-      { time: "10:30 AM", name: "Haven Signature", instructor: "Coach Mia", duration: "50 min", spots: 4, price: "$30" },
+      { time: "9:00 AM", name: "Signature 50 Minute Class", instructor: "Shannon Daly", duration: "50 min", spots: 2, price: "$30" },
+      { time: "10:30 AM", name: "Signature 50 Minute Class", instructor: "Megan Cornell", duration: "50 min", spots: 4, price: "$30" },
     ],
   },
 ];
@@ -78,7 +89,7 @@ export default function SchedulePreview() {
   const activeDayData = scheduleData.find((d) => d.day === activeDay);
 
   return (
-    <section className="py-24 lg:py-40 px-6 lg:px-12 bg-warm-white" id="schedule">
+    <section className="py-28 lg:py-44 px-6 lg:px-16 bg-warm-white" id="schedule">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -86,15 +97,15 @@ export default function SchedulePreview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-14 lg:mb-20"
         >
-          <span className="label-text text-pink-hot mb-4 block">
-            This Week
+          <span className="label-text text-pink-hot mb-5 block tracking-[0.25em] text-[10px]">
+            This Week at Haven
           </span>
-          <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal mb-4">
+          <h2 className="heading-xl text-[clamp(2rem,5vw,4.5rem)] text-charcoal mb-5">
             Find Your <span className="italic text-pink-deep">Class</span>
           </h2>
-          <p className="body-text text-charcoal-light text-lg max-w-xl mx-auto">
+          <p className="body-text text-warm-gray text-base sm:text-lg max-w-lg mx-auto">
             The waitlists do move, so don&apos;t be afraid to hop on one or a few!
           </p>
         </motion.div>
@@ -105,16 +116,16 @@ export default function SchedulePreview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-1.5 sm:gap-2 mb-10 overflow-x-auto pb-2 scrollbar-hide"
+          className="flex justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12 overflow-x-auto pb-2 scrollbar-hide"
         >
           {days.map((day) => (
             <button
               key={day}
               onClick={() => setActiveDay(day)}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
+              className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-[10px] sm:text-[11px] font-medium tracking-[0.15em] uppercase transition-all duration-400 whitespace-nowrap ${
                 activeDay === day
-                  ? "bg-pink-hot text-cream shadow-lg neon-glow"
-                  : "bg-white text-charcoal-light hover:bg-pink-light/30"
+                  ? "bg-pink-hot text-cream neon-glow-strong"
+                  : "bg-white text-charcoal-light hover:bg-pink-light/20 card-elevated"
               }`}
             >
               {day}
@@ -123,18 +134,18 @@ export default function SchedulePreview() {
         </motion.div>
 
         {/* Class Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
           {activeDayData?.classes.map((cls, i) => (
             <motion.div
               key={`${activeDay}-${i}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
+              transition={{ duration: 0.45, delay: i * 0.07 }}
+              className="group bg-white rounded-2xl p-5 sm:p-6 card-elevated hover:card-elevated-hover transition-all duration-500 border border-transparent hover:border-pink-light/30"
             >
-              <div className="flex items-start gap-4 mb-4">
+              <div className="flex items-start gap-3.5 sm:gap-4 mb-5">
                 {/* Coach Avatar */}
-                <div className="shrink-0 w-12 h-12 rounded-full overflow-hidden ring-2 ring-pink-light/50">
+                <div className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden ring-2 ring-pink-light/40 ring-offset-2 ring-offset-white">
                   <img
                     src={coachImages[cls.instructor] || "/brand1.jpg"}
                     alt={cls.instructor}
@@ -142,59 +153,62 @@ export default function SchedulePreview() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="heading-md text-lg text-charcoal mb-0.5 truncate">
-                    {cls.name}
-                  </h4>
-                  <p className="body-text text-sm text-warm-gray">
+                  <div className="flex items-baseline justify-between gap-2 mb-0.5">
+                    <h4 className="heading-md text-base sm:text-lg text-charcoal truncate">
+                      {cls.name}
+                    </h4>
+                    <span className="heading-md text-base sm:text-lg text-pink-hot shrink-0">
+                      {cls.price}
+                    </span>
+                  </div>
+                  <p className="text-[13px] text-warm-gray">
                     {cls.instructor}
                   </p>
                 </div>
-                <span className="heading-md text-lg text-pink-hot shrink-0">
-                  {cls.price}
-                </span>
               </div>
 
-              <div className="flex items-center gap-4 mb-5">
+              <div className="flex items-center gap-5 mb-5 pl-[3.25rem] sm:pl-[3.5rem]">
                 <div className="flex items-center gap-1.5 text-charcoal-light">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-50">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  <span className="text-sm">{cls.time}</span>
+                  <span className="text-[13px]">{cls.time}</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-charcoal-light">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-50">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
                     <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
-                  <span className="text-sm">{cls.duration}</span>
+                  <span className="text-[13px]">{cls.duration}</span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pl-[3.25rem] sm:pl-[3.5rem]">
                 {cls.spots > 0 ? (
-                  <span className="text-xs text-warm-gray">
-                    <span className={`inline-block w-2 h-2 rounded-full mr-1.5 ${cls.spots <= 2 ? "bg-pink-hot" : "bg-green-400"}`} />
+                  <span className="text-xs text-warm-gray flex items-center gap-1.5">
+                    <span className={`inline-block w-1.5 h-1.5 rounded-full ${cls.spots <= 2 ? "bg-pink-hot animate-pulse" : "bg-emerald-400"}`} />
                     {cls.spots} {cls.spots === 1 ? "spot" : "spots"} left
                   </span>
                 ) : (
                   <span className="text-xs text-pink-hot flex items-center gap-1.5">
-                    <span className="inline-block w-2 h-2 rounded-full bg-pink-hot/50" />
-                    Waitlist Available
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-pink-hot/40" />
+                    Waitlist available
                   </span>
                 )}
-                <Link
-                  href="/book"
-                  className={`px-5 py-2 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 ${
+                <a
+                  href="https://momence.com/u/haven-reformer-studio-SkXWwM"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-5 py-2 rounded-full text-[10px] font-medium tracking-[0.15em] uppercase transition-all duration-400 inline-block ${
                     cls.spots > 0
-                      ? "bg-pink-hot text-cream hover:bg-pink-deep"
-                      : "border border-pink-hot text-pink-hot hover:bg-pink-hot hover:text-cream"
+                      ? "bg-pink-hot text-cream hover:bg-pink-deep neon-glow"
+                      : "border border-pink-hot/60 text-pink-hot hover:bg-pink-hot hover:text-cream"
                   }`}
                 >
                   {cls.spots > 0 ? "Book" : "Join Waitlist"}
-                </Link>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -206,14 +220,14 @@ export default function SchedulePreview() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-14"
         >
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300 shadow-lg neon-glow"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-pink-hot text-cream text-[11px] font-medium tracking-[0.2em] uppercase rounded-full hover:bg-pink-deep transition-all duration-500 neon-glow-strong"
           >
             View Full Schedule
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>
