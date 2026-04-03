@@ -77,7 +77,7 @@ export default function PetalDivider({ flip = false }: { flip?: boolean }) {
             repeat: Infinity,
             repeatDelay: 0.5,
           }}
-          viewport={{ once: false, margin: "100px" }}
+          viewport={{ once: true, margin: "100px" }}
           className="absolute"
           style={{
             left: petal.x,
