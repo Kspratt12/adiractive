@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const storyItems = [
   {
-    image: "/vertical2.png",
+    image: "https://adiractive.com/cdn/shop/files/IMG_4329.jpg?v=1774034243&width=1200",
     label: "Move",
     title: "Feel the Rhythm",
     text: "Music-driven classes that flow with purpose. Every movement, every beat, designed to challenge and uplift you.",
@@ -58,7 +58,6 @@ function StoryCard({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent" />
           </div>
-          {/* Float label */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -97,7 +96,6 @@ function StoryCard({
 export default function ScrollStory() {
   return (
     <section className="py-16 lg:py-24 bg-warm-white relative overflow-hidden">
-      {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-pink-light/20 rounded-full blur-[100px]" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-lilac-light/15 rounded-full blur-[120px]" />
 

@@ -14,9 +14,9 @@ export default function FinalCTA() {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="/vertical2.png"
+          poster="/vertical5.png"
         >
-          <source src="/haven-reel-1.mp4" type="video/mp4" />
+          <source src="/haven-reel-2.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-charcoal/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent" />

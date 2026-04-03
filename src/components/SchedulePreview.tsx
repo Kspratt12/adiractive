@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 
+const coachImages: Record<string, string> = {
+  "Coach Sarah": "/brand1.jpg",
+  "Coach Jenna": "/brand2.jpg",
+  "Coach Mia": "/coach1.jpg",
+};
+
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const scheduleData = [
@@ -99,13 +105,13 @@ export default function SchedulePreview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-2 mb-10 overflow-x-auto pb-2"
+          className="flex justify-center gap-1.5 sm:gap-2 mb-10 overflow-x-auto pb-2 scrollbar-hide"
         >
           {days.map((day) => (
             <button
               key={day}
               onClick={() => setActiveDay(day)}
-              className={`px-5 py-2.5 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 whitespace-nowrap ${
                 activeDay === day
                   ? "bg-pink-hot text-cream shadow-lg neon-glow"
                   : "bg-white text-charcoal-light hover:bg-pink-light/30"
@@ -124,18 +130,26 @@ export default function SchedulePreview() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group bg-white rounded-2xl p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
+              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h4 className="heading-md text-lg text-charcoal mb-1">
+              <div className="flex items-start gap-4 mb-4">
+                {/* Coach Avatar */}
+                <div className="shrink-0 w-12 h-12 rounded-full overflow-hidden ring-2 ring-pink-light/50">
+                  <img
+                    src={coachImages[cls.instructor] || "/brand1.jpg"}
+                    alt={cls.instructor}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="heading-md text-lg text-charcoal mb-0.5 truncate">
                     {cls.name}
                   </h4>
                   <p className="body-text text-sm text-warm-gray">
                     {cls.instructor}
                   </p>
                 </div>
-                <span className="heading-md text-lg text-pink-hot">
+                <span className="heading-md text-lg text-pink-hot shrink-0">
                   {cls.price}
                 </span>
               </div>

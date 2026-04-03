@@ -10,6 +10,12 @@ import Link from "next/link";
 const instructors = ["All Instructors", "Coach Sarah", "Coach Jenna", "Coach Mia"];
 const classTypes = ["All Classes", "Haven Signature", "Intro to Haven"];
 
+const coachImages: Record<string, string> = {
+  "Coach Sarah": "/brand1.jpg",
+  "Coach Jenna": "/brand2.jpg",
+  "Coach Mia": "/coach1.jpg",
+};
+
 const fullSchedule = [
   // Monday
   { day: "Monday", date: "Apr 7", time: "6:00 AM", name: "Haven Signature", instructor: "Coach Sarah", duration: "50 min", spots: 3, price: "$30" },
@@ -197,23 +203,32 @@ export default function BookPage() {
                             transition={{ duration: 0.35, delay: i * 0.05 }}
                             className="group bg-white rounded-2xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(231,84,128,0.12)] transition-all duration-500 border border-transparent hover:border-pink-light/50"
                           >
-                            {/* Time & Price */}
-                            <div className="flex items-center justify-between mb-3">
-                              <span className="heading-md text-xl text-charcoal">
-                                {cls.time}
-                              </span>
-                              <span className="heading-md text-lg text-pink-hot">
-                                {cls.price}
-                              </span>
+                            {/* Coach + Info */}
+                            <div className="flex items-start gap-3 mb-4">
+                              <div className="shrink-0 w-11 h-11 rounded-full overflow-hidden ring-2 ring-pink-light/50">
+                                <img
+                                  src={coachImages[cls.instructor] || "/brand1.jpg"}
+                                  alt={cls.instructor}
+                                  className="w-full h-full object-cover object-top"
+                                />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between mb-0.5">
+                                  <span className="heading-md text-lg text-charcoal">
+                                    {cls.time}
+                                  </span>
+                                  <span className="heading-md text-base text-pink-hot">
+                                    {cls.price}
+                                  </span>
+                                </div>
+                                <h4 className="font-medium text-charcoal text-sm truncate">
+                                  {cls.name}
+                                </h4>
+                                <p className="text-xs text-warm-gray">
+                                  {cls.instructor} &middot; {cls.duration}
+                                </p>
+                              </div>
                             </div>
-
-                            {/* Class Name */}
-                            <h4 className="font-medium text-charcoal mb-1">
-                              {cls.name}
-                            </h4>
-                            <p className="text-sm text-warm-gray mb-4">
-                              {cls.instructor} &middot; {cls.duration}
-                            </p>
 
                             {/* Availability & CTA */}
                             <div className="flex items-center justify-between">

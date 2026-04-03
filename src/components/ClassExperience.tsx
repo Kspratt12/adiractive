@@ -12,7 +12,7 @@ const features = [
     ),
     title: "Strength-Based",
     description:
-      "Full-body conditioning that blends controlled reformer movements with modern strength training.",
+      "Full-body conditioning that blends controlled reformer movements with modern strength training and endurance work.",
   },
   {
     icon: (
@@ -24,7 +24,7 @@ const features = [
     ),
     title: "Music-Driven",
     description:
-      "Intentionally paced to curated playlists. Every beat moves with purpose, keeping you in the flow.",
+      "Set to curated playlists that keep energy high and motivation strong. Every beat moves with purpose.",
   },
   {
     icon: (
@@ -37,7 +37,7 @@ const features = [
     ),
     title: "Small Groups",
     description:
-      "Personalized attention with hands-on cues. Small enough to be seen, big enough to feel the energy.",
+      "Our small-group setting allows instructors to offer personalized cues so you can move safely and confidently.",
   },
   {
     icon: (
@@ -47,7 +47,7 @@ const features = [
     ),
     title: "All Levels Welcome",
     description:
-      "Every movement can be tailored with modifications, progressions, and spring adjustments. Start where you are.",
+      "Options to modify or progress each movement based on your experience, strength, and comfort level.",
   },
 ];
 
@@ -80,16 +80,15 @@ export default function ClassExperience() {
             className="flex items-end"
           >
             <p className="body-text text-charcoal-light text-lg max-w-lg">
-              We take a modern, athletic approach. Our classes blend traditional
-              reformer exercises with dynamic strength training sequences and
-              controlled movements. You&apos;ll leave feeling strong, energized,
-              and accomplished.
+              Athletic, intentional, and designed to challenge you while still
+              being accessible. Dynamic sequences, controlled movements, and
+              thoughtfully programmed flows that target the entire body.
             </p>
           </motion.div>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
@@ -97,15 +96,15 @@ export default function ClassExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(231,84,128,0.12)] transition-all duration-500"
+              className="group relative bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(231,84,128,0.12)] transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-2xl bg-pink-light/40 flex items-center justify-center text-pink-hot mb-6 group-hover:bg-pink-light transition-colors duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-pink-light/40 flex items-center justify-center text-pink-hot mb-4 sm:mb-6 group-hover:bg-pink-light transition-colors duration-300">
                 {feature.icon}
               </div>
-              <h3 className="heading-md text-xl lg:text-2xl text-charcoal mb-3">
+              <h3 className="heading-md text-lg sm:text-xl lg:text-2xl text-charcoal mb-2 sm:mb-3">
                 {feature.title}
               </h3>
-              <p className="body-text text-charcoal-light">
+              <p className="body-text text-charcoal-light text-sm sm:text-base">
                 {feature.description}
               </p>
             </motion.div>
@@ -113,31 +112,47 @@ export default function ClassExperience() {
         </div>
 
         {/* Class Types */}
-        <div className="mt-16 lg:mt-24 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-12 sm:mt-16 lg:mt-24 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden bg-charcoal text-cream p-8 lg:p-12"
+            className="relative rounded-2xl overflow-hidden bg-charcoal text-cream p-6 sm:p-8 lg:p-12"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-pink-hot/20 rounded-full blur-[80px]" />
-            <span className="label-text text-pink-light/60 mb-4 block">
+            <span className="label-text text-pink-light/60 mb-3 sm:mb-4 block">
               New to Haven?
             </span>
-            <h3 className="heading-lg text-2xl lg:text-3xl mb-4">
+            <h3 className="heading-lg text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4">
               Intro to Haven
             </h3>
-            <p className="body-text text-cream/70 mb-6">
-              A beginner-friendly 25-minute session designed for those brand new
-              to reformer-based training. Learn the reformer setup, foundational
-              movements, and class flow at a comfortable pace.
+            <p className="body-text text-cream/70 mb-4 text-sm sm:text-base">
+              A beginner-friendly class designed for those brand new to
+              reformer-based training. Learn the fundamentals including reformer
+              setup, spring changes, basic positioning, and movement patterns.
+              Move at a slower, more intentional pace while still getting a
+              full-body workout.
             </p>
+            <ul className="space-y-1.5 mb-6 text-cream/60 text-sm">
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-pink-light rounded-full" />
+                Reformer basics &amp; setup
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-pink-light rounded-full" />
+                Foundational strength movements
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-pink-light rounded-full" />
+                Modifications for all bodies
+              </li>
+            </ul>
             <div className="flex items-center justify-between">
-              <span className="heading-md text-2xl text-pink-light">$15</span>
+              <span className="heading-md text-xl sm:text-2xl text-pink-light">$15</span>
               <Link
                 href="/book"
-                className="px-6 py-2.5 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300"
+                className="px-5 sm:px-6 py-2.5 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300"
               >
                 Book Intro
               </Link>
@@ -149,28 +164,42 @@ export default function ClassExperience() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden bg-white p-8 lg:p-12 shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
+            className="relative rounded-2xl overflow-hidden bg-white p-6 sm:p-8 lg:p-12 shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-pink/20 rounded-full blur-[80px]" />
-            <span className="label-text text-lilac-dark mb-4 block">
+            <span className="label-text text-lilac-dark mb-3 sm:mb-4 block">
               Signature Experience
             </span>
-            <h3 className="heading-lg text-2xl lg:text-3xl text-charcoal mb-4">
+            <h3 className="heading-lg text-xl sm:text-2xl lg:text-3xl text-charcoal mb-3 sm:mb-4">
               Haven Signature Class
             </h3>
-            <p className="body-text text-charcoal-light mb-6">
-              Our full-body, strength-focused workout that blends traditional
-              reformer exercises with modern strength training. Dynamic
-              sequences, controlled movements, all levels with personalized
-              coaching.
+            <p className="body-text text-charcoal-light mb-4 text-sm sm:text-base">
+              A full-body, strength-focused workout that blends traditional
+              reformer exercises with modern strength training and endurance
+              work. Athletic, intentional, and designed to challenge you
+              while still being accessible to all levels.
             </p>
+            <ul className="space-y-1.5 mb-6 text-charcoal-light text-sm">
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-pink-hot rounded-full" />
+                Athletic &amp; modern reformer programming
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-pink-hot rounded-full" />
+                Small-group, intentional coaching
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-pink-hot rounded-full" />
+                Uplifting, community-driven atmosphere
+              </li>
+            </ul>
             <div className="flex items-center justify-between">
-              <span className="heading-md text-2xl text-pink-hot">
+              <span className="heading-md text-xl sm:text-2xl text-pink-hot">
                 From $23/class
               </span>
               <Link
                 href="/book"
-                className="px-6 py-2.5 bg-charcoal text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-charcoal-light transition-colors duration-300"
+                className="px-5 sm:px-6 py-2.5 bg-charcoal text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-charcoal-light transition-colors duration-300"
               >
                 View Schedule
               </Link>

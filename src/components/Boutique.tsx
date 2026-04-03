@@ -3,118 +3,62 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const products = [
-  {
-    name: "Haven Grip Socks",
-    price: "$18",
-    image: "/vertical3.png",
-    tag: "Essentials",
-  },
-  {
-    name: "Haven Studio Tank",
-    price: "$42",
-    image: "/vertical7.png",
-    tag: "Apparel",
-  },
-  {
-    name: "Haven Water Bottle",
-    price: "$28",
-    image: "/vertical5.png",
-    tag: "Accessories",
-  },
-];
-
 export default function Boutique() {
   return (
     <section className="py-24 lg:py-40 px-6 lg:px-12">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 lg:mb-16 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <span className="label-text text-pink-hot mb-4 block">
-              The Boutique
-            </span>
-            <h2 className="heading-xl text-4xl md:text-5xl lg:text-6xl text-charcoal">
-              Shop <span className="italic text-pink-deep">Haven</span>
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            viewport={{ once: true }}
-          >
-            <Link
-              href="https://adiractive.com/collections/all"
-              className="label-text text-charcoal-light hover:text-pink-hot flex items-center gap-2 transition-colors"
-            >
-              View All
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((product, i) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="group cursor-pointer"
-            >
-              <div className="relative rounded-2xl overflow-hidden mb-4 bg-cream-dark">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-[340px] object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 glass-card rounded-full text-[10px] font-medium tracking-[0.1em] uppercase text-charcoal-light">
-                    {product.tag}
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <h3 className="heading-md text-lg text-charcoal group-hover:text-pink-hot transition-colors">
-                  {product.name}
-                </h3>
-                <span className="body-text text-warm-gray">{product.price}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Gift Cards */}
+        {/* Gift Cards + Coming Soon */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mt-16 lg:mt-20 relative rounded-2xl overflow-hidden bg-gradient-to-r from-pink-light/50 to-lilac-light/50 p-8 lg:p-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="heading-lg text-2xl lg:text-3xl text-charcoal mb-2">
+          {/* Gift Card */}
+          <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-pink-light/60 to-lilac-light/60 p-8 lg:p-12 flex flex-col justify-between min-h-[280px]">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-pink-hot/10 rounded-full blur-[60px]" />
+            <div className="relative z-10">
+              <span className="label-text text-pink-hot mb-4 block">
+                Gift Cards
+              </span>
+              <h3 className="heading-lg text-2xl lg:text-3xl text-charcoal mb-3">
                 Gift the Haven Experience
               </h3>
-              <p className="body-text text-charcoal-light">
+              <p className="body-text text-charcoal-light text-sm max-w-sm">
                 Give someone you love the gift of strength, community, and joy.
+                Available in any amount.
               </p>
             </div>
-            <Link
+            <a
               href="https://adiractive.com/"
-              className="shrink-0 px-8 py-3 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300 neon-glow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative z-10 mt-6 inline-flex self-start px-6 py-2.5 bg-pink-hot text-cream text-xs font-medium tracking-[0.15em] uppercase rounded-full hover:bg-pink-deep transition-colors duration-300 neon-glow"
             >
               Shop Gift Cards
-            </Link>
+            </a>
+          </div>
+
+          {/* Boutique Coming Soon */}
+          <div className="relative rounded-2xl overflow-hidden p-8 lg:p-12 flex flex-col justify-between min-h-[280px]">
+            <img
+              src="/coach2.jpg"
+              alt="Haven activewear"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/30 to-charcoal/10" />
+            <div className="relative z-10 mt-auto">
+              <span className="label-text text-pink-light mb-3 block">
+                The Boutique
+              </span>
+              <h3 className="heading-lg text-2xl lg:text-3xl text-cream mb-2">
+                Coming Soon
+              </h3>
+              <p className="body-text text-cream/70 text-sm max-w-sm">
+                Apparel, grip socks, and studio essentials designed for the Haven community.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

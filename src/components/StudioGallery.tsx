@@ -5,32 +5,32 @@ import { useRef } from "react";
 
 const galleryImages = [
   {
-    src: "/vertical2.png",
-    alt: "Reformer workout with Haven neon sign",
+    src: "/vertical7.png",
+    alt: "Haven Reformer Studio neon sign with coffee",
     span: "col-span-2 row-span-2",
     height: "h-[400px] lg:h-[600px]",
   },
   {
-    src: "/vertical1.png",
-    alt: "Haven founders with pink balloons and kettlebells",
-    span: "col-span-1 row-span-1",
-    height: "h-[280px]",
-  },
-  {
-    src: "/vertical7.png",
-    alt: "Haven neon sign with coffee",
-    span: "col-span-1 row-span-1",
-    height: "h-[280px]",
-  },
-  {
     src: "/vertical4.png",
-    alt: "Haven community group selfie in studio mirror",
+    alt: "Haven community group selfie in mirror",
     span: "col-span-1 row-span-1",
-    height: "h-[320px]",
+    height: "h-[280px]",
   },
   {
     src: "/vertical5.png",
     alt: "Member celebrating 100th class at Haven",
+    span: "col-span-1 row-span-1",
+    height: "h-[280px]",
+  },
+  {
+    src: "/vertical2.png",
+    alt: "Reformer workout under Haven neon sign",
+    span: "col-span-1 row-span-1",
+    height: "h-[320px]",
+  },
+  {
+    src: "https://adiractive.com/cdn/shop/files/IMG_4430.jpg?v=1774034409&width=1200",
+    alt: "Haven Reformer Studio reformer machines",
     span: "col-span-1 row-span-1",
     height: "h-[320px]",
   },
@@ -82,9 +82,8 @@ export default function StudioGallery() {
             loop
             playsInline
             className="w-full h-[300px] lg:h-[400px] object-cover"
-            poster="/vertical2.png"
           >
-            <source src="/haven-reel-1.mp4" type="video/mp4" />
+            <source src="/haven-reel-3.mp4" type="video/mp4" />
           </video>
         </motion.div>
 
